@@ -8,7 +8,7 @@
 <% @pets.each do |pet| %>
   <%if pet.lost == true %>
   <li>
-    <p> Pet type: <%= link_to "#{pet.species}", pet.id  %>, "<%= pet.breed %>"
+    <p> Pet type: <a href="/pets/<%= pet.id %>"><%= pet.species %></a>, "<%= pet.breed %>"
     <br> Pet description: <%=pet.description%>
     <br> Last seen at: <%=pet.loc_lost%>:  <em><%=pet.created_at.time.to_formatted_s(:long)%></em>
   </li>
@@ -24,12 +24,10 @@
 <% @pets.each do |pet| %>
   <%if pet.lost != true %>
   <li>
-    <p> Pet type: <%= link_to "#{pet.species}" %>, "<%= pet.breed %>"
+    <p> Pet type: <a href="/pets/<%= pet.id %>"><%= pet.species %></a>, "<%= pet.breed %>"
     <br> Pet description: <%=pet.description%>
     <br> Found at: <%=pet.loc_lost%>
   </li>
   <% end %>
 <% end %>
 </ul>
-
-
