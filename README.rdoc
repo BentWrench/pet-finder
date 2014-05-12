@@ -10,6 +10,8 @@ Tara Scherner de la Fuente
 
 J Vogelsberg
 
+--------------------------------------------------------------------------------------------------------------------------------
+
 Creating a pet finder application to help improve the ease and swiftness of finding and recovering lost and found pets.
 
 Current goals as of May 12th:
