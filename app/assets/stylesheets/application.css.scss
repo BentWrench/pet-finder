@@ -1,0 +1,50 @@
+@import "bootstrap";
+@import "bootstrap_flatly";
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+#side_banner1{
+  position: absolute;
+  width: 248px;
+  height: 90px;
+  background-color: #663300;
+  color: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+#side_banner2{
+  position: absolute;
+  width: 248px;
+  height: 90px;
+  background-color: #93be07;
+  color: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+#side_banner3{
+  position: absolute;
+  width: 248px;
+  height: 90px;
+  background-color: #f26b32;
+  color: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: left;
+}

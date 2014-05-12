@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
-  root to: 'pets#index'
+  devise_for :users
+  root to: "pages#index"
 
- resources :pets   #, :except => []
+  resources :users
+
+  resources :pets   #, :except => []
 
 end
