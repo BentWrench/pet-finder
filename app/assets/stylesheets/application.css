@@ -187,3 +187,10 @@ a (max-width: 767px) {
 .navbar-inverse .navbar-link:hover {
   color: #f2cc32;
 }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.42857143;
+  color: #000000;
+  background-color: #ffffff;
+}
