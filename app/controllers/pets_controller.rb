@@ -43,9 +43,9 @@ class PetsController < ApplicationController
 
 
   def destroy
-    pet = Pet.find params[:id]
+    @pet = Pet.find params[:id]
     @pet.destroy
-    redirect_to 'pets'
+    redirect_to '/pets'
   end
 
 

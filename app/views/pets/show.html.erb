@@ -19,4 +19,8 @@
 <p>Location:  <%= @pet.loc_lost %> </p>
 
 <br>
-<%= link_to "Edit This Listing", edit_pet_path %>
+<p><%= link_to "Edit This Listing", edit_pet_path %></p>
+<p><%= link_to "Delete This Listing", pet_path(@pet),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"},
+                         :class => "btn btn-danger" %></p>

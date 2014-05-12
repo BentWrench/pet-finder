@@ -1,6 +1,12 @@
 <%= form_for @pet do |f| %>
   <div class="form-group">
-    <%= f.select :species, [['Species'], ['Bird'], ['Cat'], ['Dog'], ['Reptile'], ['Other - Please Describe']] %>
+    <%= f.select :species, [
+        ['Species'],
+        ['Bird'],
+        ['Cat'],
+        ['Dog'],
+        ['Reptile'],
+        ['Other - Please Describe']] %>
   </div><br>
 
   <div class="form-group">
@@ -13,7 +19,29 @@
   </div><br>
 
   <div class="form-group">
-    <%= f.select :loc_lost, [['Area Last Seen'], ['Downtown'], ['NE Portland'], ['NW Portand'], ['SE Portland'], ['SW Portland'], ['N Portland'], ['Beaverton'], ['Gresham'], ['Clackamas'], ['Tigard'], ['Tualatin'], ['Happy Valley'], ['Milwaukie'], ['Lake Oswego'], ['Hilsboro'], ['Aloha'], ['West Linn'], ['Oregon City'], ['Troutdale'], ['Wood Village'], ['Fairview'] ]  %>
+    <%= f.select :loc_lost, [
+        ['Area Last Seen'],
+        ['Downtown'],
+        ['NE Portland'],
+        ['NW Portand'],
+        ['SE Portland'],
+        ['SW Portland'],
+        ['N Portland'],
+        ['Beaverton'],
+        ['Gresham'],
+        ['Clackamas'],
+        ['Tigard'],
+        ['Tualatin'],
+        ['Happy Valley'],
+        ['Milwaukie'],
+        ['Lake Oswego'],
+        ['Hilsboro'],
+        ['Aloha'],
+        ['West Linn'],
+        ['Oregon City'],
+        ['Troutdale'],
+        ['Wood Village'],
+        ['Fairview'] ]  %>
    </div><br>
 
   <div class="form-group">
