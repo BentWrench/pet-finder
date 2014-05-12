@@ -1,16 +1,35 @@
 <h1>Here is a list of lost and found pets</h1>
 
-<h2>Found pets</h2>
+<%=link_to "Add New Animal", new_pet_path %>
+
+<h2>Lost pets</h2>
 
 <ul>
-
 <%@pets.each do |pet|%>
+  <%if pet.lost == true %>
   <li>
-    <%= pet.species %>
-    <br> <%=pet.description%>
-    <br> <%=pet.loc_lost%>
+    <p> Pet type: <%= pet.species %>, "<%= pet.breed %>"
+    <br> Pet description: <%=pet.description%>
+    <br> Last seen at: <%=pet.loc_lost%>:  <em><%=pet.created_at.time.to_formatted_s(:long)%></em>
   </li>
+  <%end%>
 <%end%>
 </ul>
 
-<h2>Lost pets</h2>
+<br>
+
+<h2>Found pets</h2>
+
+<ul>
+<%@pets.each do |pet|%>
+  <%if pet.lost != true %>
+  <li>
+    <p> Pet type: <%= pet.species %>, "<%= pet.breed %>"
+    <br> Pet description: <%=pet.description%>
+    <br> Found at: <%=pet.loc_lost%>
+  </li>
+  <%end%>
+<%end%>
+</ul>
+
+
