@@ -1,28 +1,39 @@
-== README
+Epicodus Spring 2014 internship project for the Oregon Humane Society with the talents of:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Elikem Adadevoh
 
-Things you may want to cover:
+Patrick McGreevy
 
-* Ruby version
+Paul Ogawa
 
-* System dependencies
+Tara Scherner de la Fuente
 
-* Configuration
+J Vogelsberg
 
-* Database creation
+--------------------------------------------------------------------------------------------------------------------------------
 
-* Database initialization
+Creating a pet finder application to help improve the ease and swiftness of finding and recovering lost and found pets.
 
-* How to run the test suite
+Current goals as of May 12th:
 
-* Services (job queues, cache servers, search engines, etc.)
+–As a lost pet owner, I want to create an account, so that I can update my posting if/when needed.
 
-* Deployment instructions
+–As a lost pet owner, I want to post information about my lost pet, so that people can notify me if they find it.
 
-* ...
+–As the Humane Society, I want the site to look like asapmetro.org, just cuz.
 
+–As a lost pet owner, I want to attach one or more photos to my lost pet posting, so that people know what my pet looks like.
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+–As a lost pet owner, I want to provide my email or phone so that someone can get in touch if they find the pet.
+
+–As a lost pet finder, I want to create a posting for the pet I found, in case the owner hasn't created a posting for it yet.
+
+–As a pet finder, I want to search for pets, so that I can find the owner.
+
+–As a pet finder, I want to enter a message to the pet owner and have it email them my name, phone number and message, to let them know I found the pet.
+
+–As a lost pet owner, I want to receive a text message when my pet is found, so that I get the message more quickly than by email.
+
+–As a lost pet owner, I want to receive a text message when my pet is found, so that I get the message more quickly than by email.
+
+–As a pet finder, I want to include a photo of the pet I found in my message to the owner, so they can check and see if it's theirs.
