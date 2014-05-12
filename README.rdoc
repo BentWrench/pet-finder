@@ -2,7 +2,7 @@ Epicodus Spring 2014 internship project for the Oregon Humane Society with the t
 
 Elikem Adadevoh
 
-Partick McGreevy
+Patrick McGreevy
 
 Paul Ogawa
 
