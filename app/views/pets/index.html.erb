@@ -5,15 +5,15 @@
 <h2>Lost pets</h2>
 
 <ul>
-<%@pets.each do |pet|%>
+<% @pets.each do |pet| %>
   <%if pet.lost == true %>
   <li>
-    <p> Pet type: <%= pet.species %>, "<%= pet.breed %>"
+    <p> Pet type: <%= link_to "#{pet.species}", pet.id  %>, "<%= pet.breed %>"
     <br> Pet description: <%=pet.description%>
     <br> Last seen at: <%=pet.loc_lost%>:  <em><%=pet.created_at.time.to_formatted_s(:long)%></em>
   </li>
   <%end%>
-<%end%>
+<% end %>
 </ul>
 
 <br>
@@ -21,15 +21,15 @@
 <h2>Found pets</h2>
 
 <ul>
-<%@pets.each do |pet|%>
+<% @pets.each do |pet| %>
   <%if pet.lost != true %>
   <li>
-    <p> Pet type: <%= pet.species %>, "<%= pet.breed %>"
+    <p> Pet type: <%= link_to "#{pet.species}" %>, "<%= pet.breed %>"
     <br> Pet description: <%=pet.description%>
     <br> Found at: <%=pet.loc_lost%>
   </li>
-  <%end%>
-<%end%>
+  <% end %>
+<% end %>
 </ul>
 
 
