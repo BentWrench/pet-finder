@@ -6,8 +6,11 @@
 
 <%@pets.each do |pet|%>
   <li>
-    <%pet.species%>
+    <%= pet.species %>
+    <br> <%=pet.description%>
+    <br> <%=pet.loc_lost%>
   </li>
-</ul>
 <%end%>
+</ul>
+
 <h2>Lost pets</h2>

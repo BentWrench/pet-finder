@@ -1,6 +1,5 @@
 class Pet < ActiveRecord::Base
 
-  validates :lost_found, :presence => true
   validates :species, :presence => true
   validates :breed, :presence => true
   validates :description, :presence => true
