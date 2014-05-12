@@ -15,4 +15,8 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'shoulda-matchers'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
 end
