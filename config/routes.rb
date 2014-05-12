@@ -3,4 +3,7 @@ Rails.application.routes.draw do
   root to: "pages#index"
 
   resources :users
+
+  resources :pets   #, :except => []
+
 end
