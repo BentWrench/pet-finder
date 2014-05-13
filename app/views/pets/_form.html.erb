@@ -1,19 +1,52 @@
 <%= form_for @pet do |f| %>
   <div class="form-group">
-    <%= f.select :species, [['Dog'], ['Cat'], ['Bird'], ['Reptile'], ['Other - Please Describe']] %>
+    <%= f.select :species, [
+        ['Species'],
+        ['Bird'],
+        ['Cat'],
+        ['Dog'],
+        ['Reptile'],
+        ['Other - Please Describe']] %>
   </div><br>
 
   <div class="form-group">
-    <%= f.label :breed %>
+    <%= f.label :breed %><br>
     <%= f.text_field :breed %>
   </div><br>
     <div class="form-group">
-    <%= f.label :color %>
-    <%= f.text_field :color %>
+    <%= f.select :color, [
+        ['Pet Color'],
+        ['Brown'],
+        ['Black'],
+        ['White'],
+        ['Grey'],
+        ['Multi'] ]  %>
   </div><br>
 
   <div class="form-group">
-    <%= f.select :loc_lost, [['Area Last Seen'], ['Central'], ['North-East'], ['North-West'], ['South-East'], ['South-West']]  %>
+    <%= f.select :loc_lost, [
+        ['Area Last Seen'],
+        ['Downtown'],
+        ['NE Portland'],
+        ['NW Portand'],
+        ['SE Portland'],
+        ['SW Portland'],
+        ['N Portland'],
+        ['Beaverton'],
+        ['Gresham'],
+        ['Clackamas'],
+        ['Tigard'],
+        ['Tualatin'],
+        ['Happy Valley'],
+        ['Milwaukie'],
+        ['Lake Oswego'],
+        ['Hilsboro'],
+        ['Aloha'],
+        ['West Linn'],
+        ['Oregon City'],
+        ['Troutdale'],
+        ['Wood Village'],
+        ['Fairview'] ]  %>
    </div><br>
 
   <div class="form-group">
@@ -28,7 +61,7 @@
 
 
   <div class="form-group">
-    <%= f.label :description %>
+    <%= f.label :description %><br>
     <%= f.text_area :description, :size => "54"  %><br>
   </div><br><br>
 

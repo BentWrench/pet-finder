@@ -1,0 +1,26 @@
+<%= content_for(:title, "Show Pet | Pet Finder" ) %>
+
+
+<% if @pet.lost == true %>
+  <p><h1>Reported Lost:</h1></p>
+<% else %>
+  <p><h1>Reported Found:</h1></p>
+<% end %>
+</h1>
+
+<h3>Species:  <%= @pet.species %> </h3>
+<br>
+<p>Breed:  <%= @pet.breed %> </p>
+
+<p>Description:  <%= @pet.description %> </p>
+
+<p>Color:  <%= @pet.color %> </p>
+
+<p>Location:  <%= @pet.loc_lost %> </p>
+
+<br>
+<p><%= link_to "Edit This Listing", edit_pet_path %></p>
+<p><%= link_to "Delete This Listing", pet_path(@pet),
+                         :data => {:confirm => "You sure?",
+                                   :method => "delete"},
+                         :class => "btn btn-danger" %></p>

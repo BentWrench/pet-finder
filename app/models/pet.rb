@@ -1,5 +1,6 @@
 class Pet < ActiveRecord::Base
 
+  validates_inclusion_of :lost, :in => [true, false]
   validates :species, :presence => true
   validates :breed, :presence => true
   validates :description, :presence => true
