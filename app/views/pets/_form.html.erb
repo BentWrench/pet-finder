@@ -65,5 +65,11 @@
     <%= f.text_area :description, :size => "54"  %><br>
   </div><br><br>
 
+  <div class="form-group">
+    <%= f.file_field :avatar %>
+  </div>
+
+<br><br>
+
   <%= f.submit(:class => "btn btn-primary") %>
 <% end %>

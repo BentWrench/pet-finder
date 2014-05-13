@@ -8,6 +8,11 @@
 <% end %>
 </h1>
 
+<%if @pet.avatar.present? %>
+    <p><%= image_tag @pet.avatar.url %></p>
+  <%else%>
+      <%= image_tag("No_image_available.png", height: '15%', width: '15%') %>
+  <%end%>
 <h3>Species:  <%= @pet.species %> </h3>
 <br>
 <p>Breed:  <%= @pet.breed %> </p>
@@ -19,6 +24,8 @@
 <p>Location:  <%= @pet.loc_lost %> </p>
 
 <br>
+<p><%=link_to "Return to pet index", pets_path %></p>
+
 <p><%= link_to "Edit This Listing", edit_pet_path %></p>
 <p><%= link_to "Delete This Listing", pet_path(@pet),
                          :data => {:confirm => "You sure?",

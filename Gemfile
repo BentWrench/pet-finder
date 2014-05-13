@@ -10,6 +10,8 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'bootstrap-sass'
+gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+
 
 group :development, :test do
   gem 'spring'
