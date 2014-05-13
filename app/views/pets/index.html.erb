@@ -1,12 +1,18 @@
 <h1>Here is a list of lost and found pets</h1>
 
-<%=link_to "Add New Animal", new_pet_path %>
+<h2><%=link_to "Add New Animal", new_pet_path %></h2>
 
 <h2>Lost pets</h2>
 
 <ul>
 <% @pets.each do |pet| %>
   <%if pet.lost == true %>
+   <%if pet.avatar.present? %>
+    <p><a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url %> </a> </p>
+  <%else%>
+      <%= image_tag("No_image_available.png", height: '15%', width: '15%') %>
+  <%end%>
+
   <li>
     <p> Pet type: <a href="/pets/<%= pet.id %>"><%= pet.species %></a>, "<%= pet.breed %>"
     <br> Pet description: <%=pet.description%>
@@ -23,6 +29,12 @@
 <ul>
 <% @pets.each do |pet| %>
   <%if pet.lost != true %>
+
+  <%if pet.avatar.present? %>
+    <p><a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url %></a></p>
+  <%else%>
+      <%= image_tag("No_image_available.png", height: '15%', width: '15%') %>
+  <%end%>
   <li>
     <p> Pet type: <a href="/pets/<%= pet.id %>"><%= pet.species %></a>, "<%= pet.breed %>"
     <br> Pet description: <%=pet.description%>

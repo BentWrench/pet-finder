@@ -59,9 +59,4 @@ describe "lost or found pet" do
       page.should have_content "Reported Lost: Species: Bird"
     end
   end
-
-
-
-
-
 end

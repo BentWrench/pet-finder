@@ -1,41 +1,8 @@
-<%= form_for @pet do |f| %>
-  <div class="form-group">
-    <%= f.select :species, [['Species'], ['Bird'], ['Cat'], ['Dog'], ['Reptile'], ['Other - Please Describe']] %>
-  </div><br>
 
-  <div class="form-group">
-    <%= f.label :breed %><br>
-    <%= f.text_field :breed %>
-  </div><br>
-    <div class="form-group">
-       <%= f.select :color, [
-        ['Pet Color'],
-        ['Brown'],
-        ['Black'],
-        ['White'],
-        ['Grey'],
-        ['Multi'] ]  %>
-  </div><br>
+<h1>Edit pet information</h1>
 
-<div class="form-group">
-    <%= f.select :loc_lost, [['Area Last Seen'], ['Downtown'], ['NE Portland'], ['NW Portand'], ['SE Portland'], ['SW Portland'], ['N Portland'], ['Beaverton'], ['Gresham'], ['Clackamas'], ['Tigard'], ['Tualatin'], ['Happy Valley'], ['Milwaukie'], ['Lake Oswego'], ['Hilsboro'], ['Aloha'], ['West Linn'], ['Oregon City'], ['Troutdale'], ['Wood Village'], ['Fairview'] ]  %>
-   </div><br>
+<%= render("layouts/errors", :object => @pet) %>
 
-  <div class="form-group">
-    <%= f.label :Lost? %>
-    <%= f.radio_button :lost, "1" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :Found? %>
-    <%= f.radio_button :lost, "0" %>
-  </div><br>
-
-
-  <div class="form-group">
-    <%= f.label :description %><br>
-    <%= f.text_area :description, :size => "54"  %><br>
-  </div><br><br>
-
-  <%= f.submit(:class => "btn btn-primary") %>
-<% end %>
+<%= render 'form' %>
+<br>
+<p><%=link_to "Return to pet index", pets_path %></p>
