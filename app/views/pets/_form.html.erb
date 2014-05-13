@@ -14,8 +14,13 @@
     <%= f.text_field :breed %>
   </div><br>
     <div class="form-group">
-    <%= f.label :color %><br>
-    <%= f.text_field :color %>
+    <%= f.select :color, [
+        ['Pet Color'],
+        ['Brown'],
+        ['Black'],
+        ['White'],
+        ['Grey'],
+        ['Multi'] ]  %>
   </div><br>
 
   <div class="form-group">

@@ -26,7 +26,7 @@
   <li>
     <p> Pet type: <a href="/pets/<%= pet.id %>"><%= pet.species %></a>, "<%= pet.breed %>"
     <br> Pet description: <%=pet.description%>
-    <br> Found at: <%=pet.loc_lost%>
+    <br> Found at: <%=pet.loc_lost%>: <%=pet.loc_lost%>:  <em><%=pet.created_at.time.to_formatted_s(:long)%></em>
   </li>
   <% end %>
 <% end %>
