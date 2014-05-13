@@ -25,6 +25,10 @@ ActiveRecord::Schema.define(version: 20140513185246) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "lost"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
     t.integer  "user_id"
   end
 
