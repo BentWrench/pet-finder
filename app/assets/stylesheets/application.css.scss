@@ -1,3 +1,6 @@
+@import "bootstrap";
+@import "bootstrap_flatly";
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -13,3 +16,35 @@
  *= require_tree .
  *= require_self
  */
+#side_banner1{
+  position: absolute;
+  width: 248px;
+  height: 90px;
+  background-color: #663300;
+  color: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+#side_banner2{
+  position: absolute;
+  width: 248px;
+  height: 90px;
+  background-color: #93be07;
+  color: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+#side_banner3{
+  position: absolute;
+  width: 248px;
+  height: 90px;
+  background-color: #f26b32;
+  color: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: left;
+}
