@@ -8,7 +8,7 @@
 </h1>
 
 <%if @pet.avatar.present? %>
-    <p><%= image_tag @pet.avatar.url %></p>
+    <p><%= image_tag @pet.avatar.url(:large) %></p>
   <%else%>
       <%= image_tag("No_image_available.png", height: '15%', width: '15%') %>
   <%end%>
@@ -24,7 +24,6 @@
 
 <br>
 
-<% if user_signed_in? %>
 
   <p><%=link_to "Return to pet index", pets_path %></p>
   <p><%= link_to "Edit This Listing", edit_pet_path %></p>
@@ -32,4 +31,3 @@
                            :data => {:confirm => "You sure?",
                                      :method => "delete"},
                          :class => "btn btn-danger" %></p>
-<%end%>

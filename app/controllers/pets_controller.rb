@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
 
-   before_filter :authorize, only: [:new,:edit, :destroy]
+   # before_filter :authorize, only: [:new,:edit, :destroy]
 
   def index
     @pets = Pet.all
@@ -64,7 +64,7 @@ class PetsController < ApplicationController
 
 
   def pet_params
-    params.require(:pet).permit(:species, :breed, :color, :loc_lost, :lost, :description, :avatar)
+    params.require(:pet).permit(:user_id, :species, :breed, :color, :loc_lost, :lost, :description, :avatar)
   end
 
 

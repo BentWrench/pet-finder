@@ -1,4 +1,5 @@
 <%= form_for @pet do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
   <div class="form-group">
     <%= f.select :species, [
         ['Species'],
