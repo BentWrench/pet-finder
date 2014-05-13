@@ -1,7 +1,7 @@
 <h1>Here is a list of lost and found pets</h1>
-
-<h2><%=link_to "Add New Animal", new_pet_path %></h2>
-
+<% if user_signed_in? %>
+  <h2><%=link_to "Add New Animal", new_pet_path %></h2>
+<%end%>
 <h2>Lost pets</h2>
 
 <ul>
