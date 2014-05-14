@@ -8,9 +8,9 @@
 <% @pets.each do |pet| %>
   <%if pet.lost == true %>
    <%if pet.avatar.present? %>
-    <p><a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url %> </a> </p>
+    <p><a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:medium) %> </a> </p>
   <%else%>
-      <%= image_tag("No_image_available.png", height: '15%', width: '15%') %>
+       <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '15%', width: '15%') %> </a>
   <%end%>
 
   <li>
@@ -33,7 +33,7 @@
   <%if pet.avatar.present? %>
     <p><a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url %></a></p>
   <%else%>
-      <%= image_tag("No_image_available.png", height: '15%', width: '15%') %>
+      <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '15%', width: '15%') %> </a>
   <%end%>
   <li>
     <p> Pet type: <a href="/pets/<%= pet.id %>"><%= pet.species %></a>, "<%= pet.breed %>"

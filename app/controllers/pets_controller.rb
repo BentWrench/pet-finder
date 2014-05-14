@@ -1,6 +1,6 @@
 class PetsController < ApplicationController
 
-#  before_filter :authorize, only: [:create, :show]
+   # before_filter :authorize, only: [:new,:edit, :destroy]
 
   def index
     @pets = Pet.all
@@ -28,8 +28,19 @@ class PetsController < ApplicationController
 
 
   def show
-    @pet = Pet.find params[:id]
+    @pet = Pet.find_by_id(params[:id])
+    if @pet.nil?
+      render 'public/404.html'
+    end
   end
+
+  # Ellie's Alternate method:
+  #   begin
+  #     @pet = Pet.find params[:id]
+  #   rescue ActiveRecord::RecordNotFound => e
+  #     @pet = nil
+  #   end
+
 
 
   def update
@@ -53,7 +64,7 @@ class PetsController < ApplicationController
 
 
   def pet_params
-    params.require(:pet).permit(:species, :breed, :color, :loc_lost, :lost, :description, :avatar)
+    params.require(:pet).permit(:user_id, :species, :breed, :color, :loc_lost, :lost, :description, :avatar)
   end
 
 
