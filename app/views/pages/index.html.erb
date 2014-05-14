@@ -1,17 +1,15 @@
 
-<h1>Oregon Humane Society Pet Finder</h1>
 
-<div class="row-fluid">
-  <div class="span4">
-    <button type="button" class="btn btn-default align="left"">Report lost pet</button>
-  </div>
-  <br>
-  <div class="span4">
-    <button type="button" class="btn btn-default" align="right">Report found pet</button>
-  </div>
-</div>
+<br><br><br><br><br>
+<div class="row">
+    <div class="col-sm-6 col-xs-12">
+        <p><%= link_to "Report a Lost Pet", new_pet_path(:lost => true), :class=> "btn btn-default" %></p>
+        </a>
+    </div>
+     <div class="col-sm-6 col-xs-12">
+        <p><%= link_to "Report a Found Pet", new_pet_path(:lost => false), :class=> "btn btn-default" %></p>
+        </a>
+    </div>
 
-<br>
-
-  <p><%=link_to "View lost and found pet index", pets_path %></p>
-
+<br><br><br><br><br>
+<%=link_to "View pet list", pets_path %>

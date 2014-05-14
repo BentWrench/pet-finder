@@ -50,16 +50,7 @@
         ['Fairview'] ]  %>
    </div><br>
 
-  <div class="form-group">
-    <%= f.label :Lost? %>
-    <%= f.radio_button :lost, "1" %>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :Found? %>
-    <%= f.radio_button :lost, "0" %>
-  </div><br>
-
+  <%= f.hidden_field :lost %>
 
   <div class="form-group">
     <%= f.label :description %><br>
