@@ -9,6 +9,7 @@ def sign_in(user)
   click_button 'Sign in'
 end
 
+
 feature 'the sign in and out processes' do
   before :each do
     @user = create(:user)
