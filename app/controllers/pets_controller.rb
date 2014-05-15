@@ -1,18 +1,14 @@
 class PetsController < ApplicationController
 
-   # before_filter :authorize, only: [:new,:edit, :destroy]
-
   def index
     authorize! :index, Pet
     @pets = Pet.all
   end
 
-
   def new
     authorize! :create, Pet
     @pet = Pet.new(:lost => params[:lost])
   end
-
 
   def create
     authorize! :create, Pet
@@ -24,12 +20,10 @@ class PetsController < ApplicationController
     end
   end
 
-
   def edit
     @pet = Pet.find params[:id]
     authorize! :update, @pet
   end
-
 
   def show
     @pet = Pet.find_by_id(params[:id])
@@ -46,8 +40,6 @@ class PetsController < ApplicationController
   #     @pet = nil
   #   end
 
-
-
   def update
     @pet = Pet.find params[:id]
     authorize! :update, @pet
@@ -58,7 +50,6 @@ class PetsController < ApplicationController
     end
   end
 
-
   def destroy
     @pet = Pet.find params[:id]
     authorize! :destroy, @pet
@@ -66,7 +57,6 @@ class PetsController < ApplicationController
     flash[:notice] = 'Pet listing successfully deleted.'
     redirect_to '/pets'
   end
-
 
 private
   def pet_params
