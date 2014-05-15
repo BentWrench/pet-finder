@@ -1,6 +1,9 @@
-<h3>List a lost or found pet:</h3>
-
-
+<%if @pet.lost == true %>
+  <h3>List a lost pet:</h3>
+<%else%>
+  <h3>List a found pet</h3>
+<%end%>
+<br>
 <%= render("layouts/errors", :object => @pet) %>
 
 <%= render 'form' %>
