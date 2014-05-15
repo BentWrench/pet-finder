@@ -1,16 +1,14 @@
 <h1>Here is a list of lost and found pets</h1>
 
-<h2><%=link_to "Add New Animal", new_pet_path %></h2>
-
 <h2>Lost pets</h2>
 
 <ul>
 <% @pets.each do |pet| %>
   <%if pet.lost == true %>
    <%if pet.avatar.present? %>
-    <p><a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url %> </a> </p>
+    <p><a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:medium) %> </a> </p>
   <%else%>
-      <%= image_tag("No_image_available.png", height: '15%', width: '15%') %>
+       <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '15%', width: '15%') %> </a>
   <%end%>
 
   <li>
@@ -31,9 +29,9 @@
   <%if pet.lost != true %>
 
   <%if pet.avatar.present? %>
-    <p><a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url %></a></p>
+    <p><a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:medium) %></a></p>
   <%else%>
-      <%= image_tag("No_image_available.png", height: '15%', width: '15%') %>
+      <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '15%', width: '15%') %> </a>
   <%end%>
   <li>
     <p> Pet type: <a href="/pets/<%= pet.id %>"><%= pet.species %></a>, "<%= pet.breed %>"
@@ -43,3 +41,6 @@
   <% end %>
 <% end %>
 </ul>
+
+  <p><%=link_to "Return to homepage", root_path %></p>
+

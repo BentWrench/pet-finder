@@ -6,4 +6,5 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :role, presence: true, inclusion: { in: ROLES, message: "%{value} is not a valid role"}
+
 end

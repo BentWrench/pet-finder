@@ -1,5 +1,9 @@
 class Pet < ActiveRecord::Base
-  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/No_image_available.png"
+  has_attached_file :avatar,
+                    :styles => { :large => "1400x1400>",
+                                  :medium => "300x300>",
+                                  :thumb => "100x100>" },
+                                  :default_url => "/images/:style/No_image_available.png"
 
   validates_attachment_content_type :avatar, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   validates_inclusion_of :lost, :in => [true, false]

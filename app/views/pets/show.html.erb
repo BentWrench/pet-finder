@@ -1,6 +1,5 @@
 <%= content_for(:title, "Show Pet | Pet Finder" ) %>
 
-
 <% if @pet.lost == true %>
   <p><h1>Reported Lost:</h1></p>
 <% else %>
@@ -9,7 +8,7 @@
 </h1>
 
 <%if @pet.avatar.present? %>
-    <p><%= image_tag @pet.avatar.url %></p>
+    <p><%= image_tag @pet.avatar.url(:large) %></p>
   <%else%>
       <%= image_tag("No_image_available.png", height: '15%', width: '15%') %>
   <%end%>
@@ -24,10 +23,11 @@
 <p>Location:  <%= @pet.loc_lost %> </p>
 
 <br>
-<p><%=link_to "Return to pet index", pets_path %></p>
 
-<p><%= link_to "Edit This Listing", edit_pet_path %></p>
-<p><%= link_to "Delete This Listing", pet_path(@pet),
-                         :data => {:confirm => "You sure?",
-                                   :method => "delete"},
+
+  <p><%=link_to "Return to pet index", pets_path %></p>
+  <p><%= link_to "Edit This Listing", edit_pet_path %></p>
+  <p><%= link_to "Delete This Listing", pet_path(@pet),
+                           :data => {:confirm => "You sure?",
+                                     :method => "delete"},
                          :class => "btn btn-danger" %></p>
