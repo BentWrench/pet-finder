@@ -3,6 +3,6 @@
 <p><%= @user.email %> is an administrator</p>
 <ul>
   <% User.all.each do |user| %>
-    <li><%= user.email %></li>
+    <li><%= user.email %>: <%= user.pets.count {|pet| pet.lost } %> lost pets</li>
   <% end %>
 </ul>
