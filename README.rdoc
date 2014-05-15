@@ -1,12 +1,9 @@
 Epicodus Spring 2014 internship project for the Oregon Humane Society with the talents of:
 
-Elikem Adadevoh
 
 Patrick McGreevy
 
 Paul Ogawa
-
-Tara Scherner de la Fuente
 
 J Vogelsberg
 
