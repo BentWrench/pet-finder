@@ -1,8 +1,15 @@
 require "spec_helper"
 
+
+
 describe "lost or found pet" do
+  before :each do
+    @user = create(:user)
+  end
+
   describe "add new" do
     it "creates a new listing" do
+      sign_in_as(@user)
       visit "/pets/new"
       select("Bird", :from => "pet_species")
       fill_in "Breed", :with => "Eagle"
@@ -17,23 +24,14 @@ describe "lost or found pet" do
 
 
   describe "edit listing" do
+    before :each do
+      @user = create(:user)
+    end
+
     it "edits a lost pet listing" do
-      visit "/"
-      click_link "Sign up"
-      fill_in "Email", :with => "test@test.com"
-      fill_in "Password", :with => "12345678"
-      fill_in "Password confirmation", :with => "12345678"
-      click_button "Sign up"
-      visit "/pets/new"
-      select("Bird", :from => "pet_species")
-      fill_in "Breed", :with => "Eagle"
-      select("Brown", :from => "pet_color")
-      select("Downtown", :from => "pet_loc_lost")
-      choose('pet_lost_1')
-      fill_in 'Description', :with => "eagle eagle eagle"
-      click_button "Create Pet"
-      click_link "Bird"
-      click_link "Edit This Listing"
+      pet = create(:pet, user: @user, description: 'eagle eagle eagle' )
+      sign_in_as(@user)
+      visit "/pets/#{pet.id}/edit"
       select("Other - Please Describe", :from => "pet_species")
       fill_in "Breed", :with => "Gopher"
       select("Black", :from => "pet_color")
@@ -46,16 +44,14 @@ describe "lost or found pet" do
   end
 
   describe "select listing" do
+    before :each do
+      @user = create(:user)
+    end
+
     it "selects an existing listing" do
-      visit "/pets/new"
-      select("Bird", :from => "pet_species")
-      fill_in "Breed", :with => "Eagle"
-      select("Brown", :from => "pet_color")
-      select("Downtown", :from => "pet_loc_lost")
-      choose('pet_lost_1')
-      fill_in 'Description', :with => "eagle eagle eagle"
-      click_button "Create Pet"
-      click_link "Bird"
+      pet = create(:pet, user: @user, description: 'eagle eagle eagle' )
+      sign_in_as(@user)
+      visit "/pets/#{pet.id}"
       page.should have_content "Reported Lost: Species: Bird"
     end
   end

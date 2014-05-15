@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  devise_for :users
   root to: "pages#index"
+  devise_for :users
 
-  resources :users
+  resources :users, only: [:index, :destroy]
 
   resources :pets   #, :except => []
 

@@ -22,6 +22,9 @@
   <%= link_to "Sign in", new_user_session_path %>
 <% end %>
 </div>
+<% if can? :index, User %>
+  <%= link_to 'Users directory', users_path %>
+<% end %>
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
