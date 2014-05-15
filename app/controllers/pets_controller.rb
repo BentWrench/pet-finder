@@ -8,7 +8,11 @@ class PetsController < ApplicationController
 
 
   def new
-    @pet = Pet.new(:lost => params[:lost])
+    if !current_user
+      render "please_sign_in.html.erb"
+    else
+      @pet = Pet.new(:lost => params[:lost])
+    end
   end
 
 
@@ -24,6 +28,11 @@ class PetsController < ApplicationController
 
   def edit
     @pet = Pet.find params[:id]
+    if !current_user
+      render "please_sign_in.html.erb"
+    else
+      render 'edit'
+    end
   end
 
 
@@ -54,10 +63,15 @@ class PetsController < ApplicationController
 
 
   def destroy
-    @pet = Pet.find params[:id]
-    @pet.destroy
-    redirect_to '/pets'
+    if !current_user
+      render "please_sign_in.html.erb"
+    else
+      @pet = Pet.find params[:id]
+      @pet.destroy
+      redirect_to '/pets'
+    end
   end
+
 
 
   private
