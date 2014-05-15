@@ -13,17 +13,15 @@ Creating a pet finder application to help improve the ease and swiftness of find
 
 Current goals as of May 12th:
 
-–As a lost pet owner, I want to create an account, so that I can update my posting if/when needed.
+FINISHED–As a lost pet owner, I want to create an account, so that I can update my posting if/when needed.
 
-–As a lost pet owner, I want to post information about my lost pet, so that people can notify me if they find it.
+FINISHED–As a lost pet owner, I want to post information about my lost pet, so that people can notify me if they find it.
 
-–As the Humane Society, I want the site to look like asapmetro.org, just cuz.
+FINISHED–As a lost pet owner, I want to attach one or more photos to my lost pet posting, so that people know what my pet looks like.
 
-–As a lost pet owner, I want to attach one or more photos to my lost pet posting, so that people know what my pet looks like.
+FINISHED–As a lost pet owner, I want to provide my email or phone so that someone can get in touch if they find the pet.
 
-–As a lost pet owner, I want to provide my email or phone so that someone can get in touch if they find the pet.
-
-–As a lost pet finder, I want to create a posting for the pet I found, in case the owner hasn't created a posting for it yet.
+FINISHED–As a lost pet finder, I want to create a posting for the pet I found, in case the owner hasn't created a posting for it yet.
 
 –As a pet finder, I want to search for pets, so that I can find the owner.
 
@@ -31,6 +29,7 @@ Current goals as of May 12th:
 
 –As a lost pet owner, I want to receive a text message when my pet is found, so that I get the message more quickly than by email.
 
-–As a lost pet owner, I want to receive a text message when my pet is found, so that I get the message more quickly than by email.
-
 –As a pet finder, I want to include a photo of the pet I found in my message to the owner, so they can check and see if it's theirs.
+
+–As the Humane Society, I want the site to look like asapmetro.org.
+
