@@ -19,6 +19,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'poltergeist'
   gem 'shoulda-matchers'
   gem 'better_errors'
   gem 'binding_of_caller'

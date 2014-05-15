@@ -1,13 +1,8 @@
 
-<% if can? :read, User %>
-  <p>Can read!</p>
-<% end %>
 
-<% if @user.role == 'admin' %>
-  <p><%= @user.email %> is an administrator</p>
-  <ul>
-    <% User.all.each do |user| %>
-      <li><%= user.email %></li>
-    <% end %>
-  </ul>
-<% end %>
+<p><%= @user.email %> is an administrator</p>
+<ul>
+  <% User.all.each do |user| %>
+    <li><%= user.email %></li>
+  <% end %>
+</ul>
