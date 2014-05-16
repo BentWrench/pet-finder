@@ -14,21 +14,29 @@
   <%end%>
 <h3>Species:  <%= @pet.species %> </h3>
 <br>
-<p>Breed:  <%= @pet.breed %> </p>
+<h3>Breed:  <%= @pet.breed %> </h3>
 
-<p>Description:  <%= @pet.description %> </p>
+<h3>Description:  <%= @pet.description %> </h3>
 
-<p>Color:  <%= @pet.color %> </p>
+<h3>Color:  <%= @pet.color %> </h3>
 
-<p>Location:  <%= @pet.loc_lost %> </p>
+<h3>Location:  <%= @pet.loc_lost %> </h3>
 
 <br>
   <% if @pet.lost != true %>
-    <p><%=link_to "Do you know who I belong to?", pets_path %> +Need to add contact page</p>
+    <p><%=link_to "Do you know who I belong to?", pets_path, :class => "btn btn-danger"  %> +Need to add contact page</p>
+
+  <% else%>
+    <p><%=link_to "Have you seen me?", pets_path, :class => "btn btn-danger"  %> +Need to add contact
   <%end%>
-  <p><%=link_to "Return to pet index", pets_path %></p>
-  <p><%= link_to "Edit This Listing", edit_pet_path %></p>
-  <p><%= link_to "Delete This Listing", pet_path(@pet),
+  <p><%=link_to "Return to pet index", pets_path, :class => "btn btn-danger"  %></p>
+
+  <% if can? :edit, @pet %>
+    <p><%= link_to "Edit This Listing", edit_pet_path, :class => "btn btn-danger"  %></p>
+  <%end%>
+  <% if can? :destroy, @pet %>
+    <p><%= link_to "Delete This Listing", pet_path(@pet),
                            :data => {:confirm => "You sure?",
                                      :method => "delete"},
-                         :class => "btn btn-danger" %></p>
+                           :class => "btn btn-danger" %></p>
+  <%end%>

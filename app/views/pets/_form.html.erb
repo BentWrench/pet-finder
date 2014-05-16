@@ -61,9 +61,18 @@
     <%= f.text_area :description, :size => "54"  %><br>
   </div><br><br>
 
+  <%if @pet.avatar.present? %>
+    <p><%= image_tag @pet.avatar.url(:large) %></p>
+  <%else%>
+      <%= image_tag("No_image_available.png", height: '15%', width: '15%') %>
+  <%end%>
+
   <div class="form-group">
     <%= f.label :add_photo %><br>
     <%= f.file_field :avatar %>
+
+
+
   </div>
 
 <br><br>

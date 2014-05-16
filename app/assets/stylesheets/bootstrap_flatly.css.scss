@@ -563,9 +563,11 @@ a.bg-danger:hover {
   background-color: #d62c1a;
 }
 .page-header {
+  diplay: inline;
   padding-bottom: 9.5px;
   margin: 42px 0 21px;
   border-bottom: 1px solid transparent;
+  max-width:1400px;
 }
 ul,
 ol {
@@ -4781,11 +4783,13 @@ a.list-group-item-danger.active:focus {
   color: inherit;
 }
 .panel-footer {
-  padding: 10px 15px;
-  background-color: #ecf0f1;
+  padding: 12px 15px;
+  background-color: #669900
+;
   border-top: 1px solid #ecf0f1;
   border-bottom-right-radius: 3px;
   border-bottom-left-radius: 3px;
+  margin-bottom: 50px;
 }
 .panel > .list-group {
   margin-bottom: 0;
@@ -5975,4 +5979,15 @@ input:focus {
 .well {
   -webkit-box-shadow: none;
   box-shadow: none;
+}
+.sign_in_links{
+ background-color:#669900;
+ font-size: 15px;
+ left-margin:50px;
+ coler:black;
+}
+
+.banner{
+  padding: 10px 10px;
+  background-color: #D6AD33
 }
