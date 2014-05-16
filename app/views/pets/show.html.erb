@@ -23,8 +23,9 @@
 <p>Location:  <%= @pet.loc_lost %> </p>
 
 <br>
-
-
+  <% if @pet.lost != true %>
+    <p><%=link_to "Do you know who I belong to?", pets_path %> +Need to add contact page</p>
+  <%end%>
   <p><%=link_to "Return to pet index", pets_path %></p>
   <p><%= link_to "Edit This Listing", edit_pet_path(@pet) %></p>
   <p><%= link_to "Delete This Listing", pet_path(@pet),
