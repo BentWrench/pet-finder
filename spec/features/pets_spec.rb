@@ -10,13 +10,15 @@ describe "lost or found pet" do
   describe "add new found pet" do
     it "creates a new listing" do
       sign_in_as(@user)
-      visit "/pets/new"
+      visit "/"
+      click_link 'Report a Lost Pet'
       select("Bird", :from => "pet_species")
       fill_in "Breed", :with => "Eagle"
       select("Brown", :from => "pet_color")
       select("Downtown", :from => "pet_loc_lost")
       fill_in 'Description', :with => "My eagle done flew away!"
       click_button "Create Pet"
+      save_and_open_page
       page.should have_content "Pet description: My eagle done flew away!"
     end
   end
