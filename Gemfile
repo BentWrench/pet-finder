@@ -19,6 +19,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'capybara'
+  gem 'poltergeist'
   gem 'shoulda-matchers'
   gem 'better_errors'
   gem 'binding_of_caller'
@@ -26,5 +27,9 @@ group :development, :test do
   gem 'meta_request'
   gem 'rerun'
   gem 'launchy'
+end
+
+group :production do
+  gem 'rails_12factor'
 end
 

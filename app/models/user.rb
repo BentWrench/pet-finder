@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  ROLES = %w(admin user)
+  ROLES = %w(admin user guest)
   has_many :pets
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
