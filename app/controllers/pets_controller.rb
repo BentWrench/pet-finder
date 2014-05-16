@@ -6,8 +6,16 @@ class PetsController < ApplicationController
   end
 
   def new
+<<<<<<< HEAD
     authorize! :create, Pet
     @pet = Pet.new(:lost => params[:lost])
+=======
+    if !current_user
+      render "please_sign_in.html.erb"
+    else
+      @pet = Pet.new(:lost => params[:lost])
+    end
+>>>>>>> add_email
   end
 
   def create
@@ -22,7 +30,15 @@ class PetsController < ApplicationController
 
   def edit
     @pet = Pet.find params[:id]
+<<<<<<< HEAD
     authorize! :update, @pet
+=======
+    if !current_user
+      render "please_sign_in.html.erb"
+    else
+      render 'edit'
+    end
+>>>>>>> add_email
   end
 
   def show
@@ -51,6 +67,7 @@ class PetsController < ApplicationController
   end
 
   def destroy
+<<<<<<< HEAD
     @pet = Pet.find params[:id]
     authorize! :destroy, @pet
     @pet.destroy
@@ -59,6 +76,22 @@ class PetsController < ApplicationController
   end
 
 private
+=======
+    if !current_user
+      render "please_sign_in.html.erb"
+    else
+      @pet = Pet.find params[:id]
+      @pet.destroy
+      redirect_to '/pets'
+    end
+  end
+
+
+
+  private
+
+
+>>>>>>> add_email
   def pet_params
     params.require(:pet).permit(:user_id, :species, :breed, :color, :loc_lost, :lost, :description, :avatar)
   end

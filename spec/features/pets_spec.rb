@@ -7,7 +7,7 @@ describe "lost or found pet" do
     @user = create(:user)
   end
 
-  describe "add new" do
+  describe "add new found pet" do
     it "creates a new listing" do
       sign_in_as(@user)
       visit "/pets/new"
@@ -15,7 +15,6 @@ describe "lost or found pet" do
       fill_in "Breed", :with => "Eagle"
       select("Brown", :from => "pet_color")
       select("Downtown", :from => "pet_loc_lost")
-      choose('pet_lost_1')
       fill_in 'Description', :with => "My eagle done flew away!"
       click_button "Create Pet"
       page.should have_content "Pet description: My eagle done flew away!"
@@ -31,12 +30,12 @@ describe "lost or found pet" do
     it "edits a lost pet listing" do
       pet = create(:pet, user: @user, description: 'eagle eagle eagle' )
       sign_in_as(@user)
-      visit "/pets/#{pet.id}/edit"
+      visit pet_path(pet)
+      click_link "Edit This Listing"
       select("Other - Please Describe", :from => "pet_species")
       fill_in "Breed", :with => "Gopher"
       select("Black", :from => "pet_color")
       select("NE Portland", :from => "pet_loc_lost")
-      choose('pet_lost_1')
       fill_in 'Description', :with => "gopher gopher gopher"
       click_button "Update Pet"
       page.should have_content "Pet description: gopher gopher gopher"
@@ -51,7 +50,8 @@ describe "lost or found pet" do
     it "selects an existing listing" do
       pet = create(:pet, user: @user, description: 'eagle eagle eagle' )
       sign_in_as(@user)
-      visit "/pets/#{pet.id}"
+      visit pets_path
+      click_link "Bird"
       page.should have_content "Reported Lost: Species: Bird"
     end
   end

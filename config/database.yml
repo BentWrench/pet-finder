@@ -14,5 +14,5 @@ test:
 production:
   <<: *default
   database: lost_pet_finder_production
-  username: lost_pet_finder
-  password: <%= ENV['LOST_PET_FINDER_DATABASE_PASSWORD'] %>
+  # username: lost_pet_finder
+  # password: <%= ENV['LOST_PET_FINDER_DATABASE_PASSWORD'] %>
