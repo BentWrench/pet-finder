@@ -1,6 +1,6 @@
 <%= content_for(:title, "Show Pet | Pet Finder" ) %>
 
-<% if @pet.lost == true %>
+<% if @pet.lost %>
   <p><h1>Reported Lost:</h1></p>
 <% else %>
   <p><h1>Reported Found:</h1></p>
@@ -23,13 +23,17 @@
 <p>Location:  <%= @pet.loc_lost %> </p>
 
 <br>
-  <% if @pet.lost != true %>
+  <% if !@pet.lost %>
     <p><%=link_to "Do you know who I belong to?", pets_path %> +Need to add contact page</p>
   <%end%>
   <p><%=link_to "Return to pet index", pets_path %></p>
-  <p><%= link_to "Edit This Listing", edit_pet_path(@pet) %></p>
-  <p><%= link_to "Delete This Listing", pet_path(@pet),
-                            :data => {:confirm => "You sure?",
-                                      :method => "delete"},
-                            :class => "btn btn-danger" %></p>
+  <% if can? :update, @pet %>
+    <p><%= link_to "Edit This Listing", edit_pet_path(@pet) %></p>
+  <% end %>
+  <% if can? :destroy, @pet %>
+    <p><%= link_to "Delete This Listing", pet_path(@pet),
+                              :data => {:confirm => "You sure?",
+                                        :method => "delete"},
+                              :class => "btn btn-danger" %></p>
+  <% end %>
 

@@ -1,0 +1,9 @@
+<%= form_tag do %>
+  <%= hidden_field :user, :role, value: 'admin' %>
+  <div class='form-group'>
+    <%= label :user, :email %><br>
+    <%= text_field :user, :email %>
+  </div>
+  <br><br>
+  <%= submit_tag "Create Admin", class: 'btn btn-primary' %>
+<% end %>

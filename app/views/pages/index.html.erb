@@ -13,3 +13,7 @@
 
 <p align='center'><%=link_to "View pet list", pets_path %></p>
 
+<% if can? :index, User %>
+  <p align='center'><%= link_to 'Users directory', users_path %></p>
+<% end %>
+

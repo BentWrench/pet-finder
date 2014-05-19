@@ -10,7 +10,7 @@
 
 <%= link_to image_tag('hum_soc.jpg', height: '100%', width: '100%'), "https://oregonhumane.org" %>
 <br><br>
-<h2>Oregon Humane Society Pet Finder</h2>
+<h2><%= link_to 'Oregon Humane Society Pet Finder', root_path %></h2>
 
 <div class="sign_in_links">
 <% if user_signed_in? %>
@@ -22,9 +22,7 @@
   <%= link_to "Sign in", new_user_session_path %>
 <% end %>
 </div>
-<% if can? :index, User %>
-  <%= link_to 'Users directory', users_path %>
-<% end %>
+
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>

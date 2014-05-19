@@ -6,7 +6,13 @@ class Ability
     if user
       if user.role == 'admin'
         can :manage, :all
+        cannot :delete, User do |account|
+          account.role == 'admin'
+        end
       elsif user.role == 'user'
+        can :read, User do |account|
+          account == user
+        end
         can [:read, :create], Pet
         can :modify, Pet do |pet|
           pet.try(:user) == user

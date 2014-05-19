@@ -4,7 +4,7 @@
 
 <ul>
 <% @pets.each do |pet| %>
-  <%if pet.lost == true %>
+  <%if pet.lost %>
    <%if pet.avatar.present? %>
     <p><a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:medium) %> </a> </p>
   <%else%>
@@ -12,6 +12,9 @@
   <%end%>
 
   <li>
+    <% if can? :read, pet.user %>
+      <p> Owner: <%= pet.user.email %></p>
+    <% end %>
     <p> Pet type: <a href="/pets/<%= pet.id %>"><%= pet.species %></a>, "<%= pet.breed %>"
     <br> Pet description: <%=pet.description%>
     <br> Last seen at: <%=pet.loc_lost%>:  <em><%=pet.created_at.time.to_formatted_s(:long)%></em>
@@ -26,7 +29,7 @@
 
 <ul>
 <% @pets.each do |pet| %>
-  <%if pet.lost != true %>
+  <%if !pet.lost %>
 
   <%if pet.avatar.present? %>
     <p><a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:medium) %></a></p>
@@ -34,6 +37,9 @@
       <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '15%', width: '15%') %> </a>
   <%end%>
   <li>
+    <% if can? :read, pet.user %>
+      <p> Owner: <%= pet.user.email %></p>
+    <% end %>
     <p> Pet type: <a href="/pets/<%= pet.id %>"><%= pet.species %></a>, "<%= pet.breed %>"
     <br> Pet description: <%=pet.description%>
     <br> Found at: <%=pet.loc_lost%>: <%=pet.loc_lost%>:  <em><%=pet.created_at.time.to_formatted_s(:long)%></em>
