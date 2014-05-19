@@ -52,7 +52,6 @@
 .btn{
   width: 100%;
   height: 100%;
-  background-color:orange;
   font-size:25px;
 
 }
@@ -68,11 +67,41 @@
 
 }
 
+.test{
+  height:100px;
+  background-color: #663300;
+  text-align:left;
+}
 
+.test1{
+  height:100px;
+  background-color: #75A319;
+  text-align:left;
+}
+
+.test2{
+  height:100px;
+  background-color: #FF6600;
+  text-align:left;
+}
 
 .banner{
   padding: 5px;
   background-color: #D6AD33;
   color:white;
   text-align:center;
+}
+
+h1{
+  font-weight:bold;
+  margin-top:0;
+}
+
+.green{
+  color: #75A319;
+}
+
+.display{
+
+
 }

@@ -4784,7 +4784,8 @@ a.list-group-item-danger.active:focus {
 }
 .panel-footer {
   padding: 12px 15px;
-  background-color: #669900
+  background-color: #75A319;
+  color:white;
 ;
   border-top: 1px solid #ecf0f1;
   border-bottom-right-radius: 3px;
@@ -5981,11 +5982,14 @@ input:focus {
   box-shadow: none;
 }
 .sign_in_links{
- background-color:#669900;
+ background-color:#75A319;
  font-size: 15px;
  left-margin:50px;
- color:black;
- height:30px;
+ color:white;
+ height:35px;
+ line-height:35px;
  padding-right:10px;
+ padding-left:10px;
 }
+
 

@@ -4,18 +4,44 @@
 
 <div class="row">
   <div class="col-sm-6 col-lg-4">
-    <p><%= link_to "Report a Lost Pet", new_pet_path(:lost => true), :class=> "btn btn-default" %></p>
+    <p><%= link_to "Report a Lost Pet", new_pet_path(:lost => true), :class=> "btn btn-default test" %></p>
       <br>
-    <p><%= link_to "Report a Found Pet", new_pet_path(:lost => false), :class=> "btn btn-default" %></p>
+    <p><%= link_to "Report a Found Pet", new_pet_path(:lost => false), :class=> "btn btn-default test1" %></p>
     <br>
-    <p><%= link_to "View list of pets", pets_path, :class=> "btn btn-default" %></p>
+    <p><%= link_to "View list of pets", pets_path, :class=> "btn btn-default test2" %></p>
   </div>
   <div class="col-sm-6 col-lg-8">
-      <h1>Welcome to the pet finder!</h1>
-      <p>Losing your pet can be very stressful and we aim to make the location of your best friend easier and quicker. Please browse available pets or sign in to list a pet that you have lost or found. </p>
+      <h1 class="green">Welcome to the pet finder!</h1>
+      <p >Literally four loko fashion axe, locavore letterpress mustache freegan American Apparel. Ennui retro paleo locavore, twee McSweeney's whatever. Sriracha American Apparel YOLO, fingerstache pug narwhal single-origin coffee dreamcatcher pork belly chillwave Godard locavore. Bitters small batch banh mi, ethnic distillery you probably haven't heard of them Schlitz aesthetic authentic. Tote bag vegan retro scenester. Neutra beard occupy, tattooed Tumblr Kickstarter sartorial Bushwick bespoke quinoa seitan freegan. Whatever butcher distillery, Shoreditch bitters Brooklyn gentrify fingerstache stumptown.</p>
 
-      <p>We hope this website will help you find your lost pet and thank you for coming by!</p>
 
+      <div class="col-sm-3 col-lg-6">
+        <div class="sign_in_links">  Last 2 Lost Pets :</div>
+        <% @last.each do |pet|%>
+          <%if pet.lost = true%>
+              <%if pet.avatar.present? %>
+                  <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:thumb) %>
+              <%else%>
+                 <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '15%', width: '15%') %>
+              <%end%>
+              <a href="/pets/<%= pet.id %>"><p>Species:  <%= pet.species %> </p>
+              <p>Last seen at:  <%= pet.loc_lost %> </p>
+          <%end%>
+        <%end%>
+      </div>
+            <div class="col-sm-3 col-lg-6">
+             <div class="sign_in_links"> Last 2 Found pets:</div>
+             <% @last.each do  |pet|%>
+              <%if pet.avatar.present? %>
+                  <a href="/pets/<%= pet.id %>"><p><%= image_tag pet.avatar.url(:thumb) %></p>
+                <%else%>
+                  <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '15%', width: '15%') %>
+              <%end%>
+              <a href="/pets/<%= pet.id %>"><p>Species:  <%= pet.species %> </p>
+              <p>Found around:  <%= pet.loc_lost %> </p>
+              <%end%>
+            </div>
+      </div>
   </div>
 </div>
  <br><br><br><br><br><br><br>
