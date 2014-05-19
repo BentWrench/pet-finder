@@ -5,5 +5,5 @@ class UserMailer < ActionMailer::Base
     @user = user
     @url  = 'http://example.com/login'
     mail(to: @user.email, subject: 'Thank you for signing up for the Oregon Humane Societies pet tracker')
-  end
+   end
 end

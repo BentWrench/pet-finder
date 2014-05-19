@@ -8,37 +8,34 @@
 </head>
 <body>
   <div class="container">
-  <div class="sign_in_links">
-    <% if user_signed_in? %>
-      Logged in as <strong><%= current_user.email %></strong>.
-      <%= link_to 'Edit profile', edit_user_registration_path %> |
-      <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-    <% else %>
-      <%= link_to "Sign up", new_user_registration_path %> |
-      <%= link_to "Sign in", new_user_session_path %>
-    <% end %>
+    <div class="sign_in_links" align="right">
+        <% if user_signed_in? %>
+          Logged in as <strong><%= current_user.email %></strong>.
+          <%= link_to 'Edit profile', edit_user_registration_path %> |
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to "Sign up", new_user_registration_path %> |
+          <%= link_to "Sign in", new_user_session_path %>
+        <% end %>
+        </div>
+        <% if can? :index, User %>
+        <%= link_to 'Users directory', users_path %>
+      <% end %>
+
+      <%= flash[:alert] %>
+      <%= flash[:notice] %>
+
+      <div class="col-sm-4 col-lg-4 header-images" ><%= link_to image_tag('OHS-Logo-2011.png', class:'logo'), root_path%></div>
+      <div class="col-sm-6 col-lg-8 header-images" ><%= link_to image_tag('header4.jpg', height: '8%', width: '100%'), root_path %></div>
     </div>
-    <% if can? :index, User %>
-    <%= link_to 'Users directory', users_path %>
-  <% end %>
-
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-
+  </div>
 </div>
 
-<div class="container">
-  <div class="col-sm-4 col-lg-4" ><%= link_to image_tag('OHS-Logo-2011.png', height: '100%', width: '50%')%></div>
-  <div class="col-sm-6 col-lg-8" ><%= link_to image_tag('header4.jpg', height: '100%', width: '100%'), root_path %></div>
-</div>
-<br><br>
-</div>
-
-<div class="container">
+<!-- <div class="container">
   <div class="banner">
     <h2>Oregon Humane Society Pet Finder</h2>
   </div>
-</div>
+</div> -->
 <div class="container">
 
 
