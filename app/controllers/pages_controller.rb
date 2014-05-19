@@ -2,6 +2,7 @@ class PagesController < ApplicationController
 
   def index
     @pets = Pet.all
-    @last = Pet.last(3)
+    @lost = Pet.lost.last(5)
+    @found = Pet.found.last(5)
   end
 end

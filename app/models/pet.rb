@@ -1,4 +1,8 @@
 class Pet < ActiveRecord::Base
+  scope :lost, -> { where(lost: true) }
+  scope :found, -> { where(lost: false) }
+
+
   has_attached_file :avatar,
                     :styles => { :large => "1400x1400>",
                                   :medium => "300x300>",
