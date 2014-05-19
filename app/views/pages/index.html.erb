@@ -1,15 +1,22 @@
-<br><br><br><br><br>
+
+
+<br><br>
+
 <div class="row">
-    <div class="col-sm-6 col-xs-12">
-        <p><%= link_to "Report a Lost Pet", new_pet_path(:lost => true), :class=> "btn btn-default" %></p>
-        </a>
-    </div>
-     <div class="col-sm-6 col-xs-12">
-        <p><%= link_to "Report a Found Pet", new_pet_path(:lost => false), :class=> "btn btn-default" %></p>
-        </a>
-    </div>
+  <div class="col-sm-6 col-lg-4">
+    <p><%= link_to "Report a Lost Pet", new_pet_path(:lost => true), :class=> "btn btn-default" %></p>
+      <br>
+    <p><%= link_to "Report a Found Pet", new_pet_path(:lost => false), :class=> "btn btn-default" %></p>
+    <br>
+    <p><%= link_to "View list of pets", pets_path, :class=> "btn btn-default" %></p>
+  </div>
+  <div class="col-sm-6 col-lg-8">
+      <h1>Welcome to the pet finder!</h1>
+      <p>Losing your pet can be very stressful and we aim to make the location of your best friend easier and quicker. Please browse available pets or sign in to list a pet that you have lost or found. </p>
 
-<br><br><br><br><br>
+      <p>We hope this website will help you find your lost pet and thank you for coming by!</p>
 
-<p align='center'><%=link_to "View pet list", pets_path %></p>
+  </div>
+</div>
+ <br><br><br><br><br><br><br>
 
