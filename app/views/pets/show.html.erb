@@ -10,7 +10,7 @@
   <%if @pet.avatar.present? %>
       <p><%= image_tag @pet.avatar.url(:large) %></p>
     <%else%>
-        <%= image_tag("No_image_available.png", height: '15%', width: '15%') %>
+        <%= image_tag("No_image_available.png", height: '300px', width: '300px') %>
     <%end%>
   <h3>Species:  <%= @pet.species %> </h3>
   <br>
