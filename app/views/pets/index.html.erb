@@ -1,15 +1,15 @@
 <div class="row">
-  <div class="col-sm-6 col-lg-6">
+  <div class="col-sm-3 col-lg-6">
     <div class="display1"><h1> Most recent lost pets :</h1></div>
     <% @lost.each do |pet|%>
     <br>
       <%if pet.avatar.present? %>
-          <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:medium) %>
+          <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:medium) %></a>
       <%else%>
-         <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '300px', width: '300px') %>
+         <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '300px', width: '300px') %></a>
       <%end%>
       <% if can? :read, pet.user %>
-        <p> Owner: <%= pet.user.email %></p>
+        <p>Owner: <%= pet.user.email %></p>
       <% end %>
       <a href="/pets/<%= pet.id %>">
         <p>Species:  <%= pet.species %></p>
@@ -24,10 +24,13 @@
     <% @found.each do  |pet| %>
       <br>
       <%if pet.avatar.present? %>
-        <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:medium) %>
+        <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:medium) %></a>
       <%else%>
-        <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '300px', width: '300px') %>
+        <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '300px', width: '300px') %></a>
       <%end%>
+      <% if can? :read, pet.user %>
+        <p>Owner: <%= pet.user.email %></p>
+      <% end %>
       <a href="/pets/<%= pet.id %>">
         <p>Species: <%= pet.species %></p>
         <p>Found near: <%= pet.loc_lost %></p>
