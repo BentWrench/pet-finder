@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root to: "pages#index"
+
   devise_for :users
 
   resources :users, only: [:index, :show, :destroy]
@@ -7,5 +8,7 @@ Rails.application.routes.draw do
   match '/users/admin/new', via: :post, to: 'users#create'
 
   resources :pets   #, :except => []
+
+
 
 end
