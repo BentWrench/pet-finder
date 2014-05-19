@@ -3,6 +3,8 @@ class PetsController < ApplicationController
   def index
     authorize! :index, Pet
     @pets = Pet.all
+    @lost = Pet.lost.last(5)
+    @found = Pet.found.last(5)
   end
 
   def new
