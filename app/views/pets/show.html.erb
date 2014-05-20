@@ -1,11 +1,12 @@
 <%= content_for(:title, "Show Pet | Pet Finder" ) %>
-<div class="col-sm-3 col-lg-6">
   <% if @pet.lost == true %>
     <p><h1>Reported Lost:</h1></p>
   <% else %>
     <p><h1>Reported Found:</h1></p>
   <% end %>
   </h1>
+  <br>
+<div class="col-sm-3 col-lg-6">
 
   <%if @pet.avatar.present? %>
       <p><%= image_tag @pet.avatar.url(:large) %></p>
@@ -26,7 +27,6 @@
 
 <div class="row">
   <div class="col-sm-3 col-lg-6">
-    <br>
       <% if @pet.lost != true %>
         <p><%=link_to "Do you know who I belong to?", pets_path, :class => "btn btn-danger"  %>
 
