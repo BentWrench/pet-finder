@@ -1,81 +1,78 @@
+<%= form_for @pet do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <div class="form-group">
+    <%= f.label :Type %><br>
+    <%= f.select :species, [
+        ['Bird'],
+        ['Cat'],
+        ['Dog'],
+        ['Reptile'],
+        ['Other - Please Describe']] %>
+  </div><br>
 
-<form role="form">
-  <%= form_for @pet do |f| %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
+  <div class="form-group">
+    <%= f.label :breed %><br>
+    <%= f.text_field :breed %>
+  </div><br>
     <div class="form-group">
-      <%= f.label :Type %><br>
-      <%= f.select :species, [
-          ['Bird'],
-          ['Cat'],
-          ['Dog'],
-          ['Reptile'],
-          ['Other - Please Describe']] %>
-    </div><br>
+    <%= f.label :pet_color %><br>
+    <%= f.select :color, [
+        ['Brown'],
+        ['Black'],
+        ['White'],
+        ['Grey'],
+        ['Multi'] ]  %>
+  </div><br>
 
-    <div class="form-group">
-      <%= f.label :breed %><br>
-      <%= f.text_field :breed, class: "form-control" %>
-    </div><br>
-      <div class="form-group">
-      <%= f.label :pet_color %><br>
-      <%= f.select :color,  [
-          ['Brown'],
-          ['Black'],
-          ['White'],
-          ['Grey'],
-          ['Multi'] ]  %>
-    </div><br>
-
-    <div class="form-group">
-      <%if @pet.lost == true %>
-        <%= f.label :area_last_seen %><br>
-      <%else%>
-        <%= f.label :area_found %><br>
-      <%end%>
-        <%= f.select :loc_lost, [
-            ['Downtown'],
-            ['NE Portland'],
-            ['NW Portand'],
-            ['SE Portland'],
-            ['SW Portland'],
-            ['N Portland'],
-            ['Beaverton'],
-            ['Gresham'],
-            ['Clackamas'],
-            ['Tigard'],
-            ['Tualatin'],
-            ['Happy Valley'],
-            ['Milwaukie'],
-            ['Lake Oswego'],
-            ['Hilsboro'],
-            ['Aloha'],
-            ['West Linn'],
-            ['Oregon City'],
-            ['Troutdale'],
-            ['Wood Village'],
-            ['Fairview'] ]  %>
-       </div><br>
-
-    <%= f.hidden_field :lost %>
-
-    <div class="form-group">
-      <%= f.label :description %><br>
-      <%= f.text_area :description, class: "form-control", :size => "54"  %><br>
-    </div><br><br>
-
-    <%if @pet.avatar.present? %>
-      <p><%= image_tag @pet.avatar.url(:large) %></p>
+  <div class="form-group">
+    <%if @pet.lost == true %>
+      <%= f.label :area_last_seen %><br>
     <%else%>
-        <%= image_tag("No_image_available.png", height: '15%', width: '15%') %>
+      <%= f.label :area_found %><br>
     <%end%>
+      <%= f.select :loc_lost, [
+          ['Downtown'],
+          ['NE Portland'],
+          ['NW Portand'],
+          ['SE Portland'],
+          ['SW Portland'],
+          ['N Portland'],
+          ['Beaverton'],
+          ['Gresham'],
+          ['Clackamas'],
+          ['Tigard'],
+          ['Tualatin'],
+          ['Happy Valley'],
+          ['Milwaukie'],
+          ['Lake Oswego'],
+          ['Hilsboro'],
+          ['Aloha'],
+          ['West Linn'],
+          ['Oregon City'],
+          ['Troutdale'],
+          ['Wood Village'],
+          ['Fairview'] ]  %>
+     </div><br>
 
-    <div class="form-group">
-      <%= f.label :add_photo %><br>
-      <%= f.file_field :avatar %>
-    </div>
+  <%= f.hidden_field :lost %>
 
-  <br><br>
+  <div class="form-group">
+    <%= f.label :description %><br>
+    <%= f.text_area :description, :size => "54"  %><br>
+  </div><br><br>
 
-    <%= f.submit(:class => "btn btn-primary") %>
-  <% end %>
-</form>
+  <%if @pet.avatar.present? %>
+    <p><%= image_tag @pet.avatar.url(:large) %></p>
+  <%else%>
+      <%= image_tag("No_image_available.png", height: '15%', width: '15%') %>
+  <%end%>
+
+  <div class="form-group">
+    <%= f.label :add_photo %><br>
+    <%= f.file_field :avatar %>
+  </div>
+
+<br><br>
+
+  <%= f.submit(:class => "btn btn-primary") %>
+<% end %>

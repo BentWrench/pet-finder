@@ -2,50 +2,51 @@
 
 <br><br>
 
-<div class="row">
-  <div class="col-sm-6 col-lg-4">
+<div class="row-fluid">
+  <div class="col-xs-12 col-sm-6 col-lg-4">
     <p><%= link_to "Report a Lost Pet", new_pet_path(:lost => true), :class=> "btn btn-default test" %></p>
       <br>
     <p><%= link_to "Report a Found Pet", new_pet_path(:lost => false), :class=> "btn btn-default test1" %></p>
     <br>
     <p><%= link_to "View list of pets", pets_path, :class=> "btn btn-default test2" %></p>
   </div>
-  <div class="col-sm-6 col-lg-8">
+<div class="row-fluid">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-8">
       <h1 class="green">Welcome to the pet finder!</h1>
-      <p >Literally four loko fashion axe, locavore letterpress mustache freegan American Apparel. Ennui retro paleo locavore, twee McSweeney's whatever. Sriracha American Apparel YOLO, fingerstache pug narwhal single-origin coffee dreamcatcher pork belly chillwave Godard locavore. Bitters small batch banh mi, ethnic distillery you probably haven't heard of them Schlitz aesthetic authentic. Tote bag vegan retro scenester. Neutra beard occupy, tattooed Tumblr Kickstarter sartorial Bushwick bespoke quinoa seitan freegan. Whatever butcher distillery, Shoreditch bitters Brooklyn gentrify fingerstache stumptown.</p>
+      <p >Literally foursquare fashion axe, locavore letterpress mustache freegan American Apparel. Ennui retro paleo locavore, twee McSweeney's whatever. Sriracha American Apparel YOLO, fingerstache pug narwhal single-origin coffee dreamcatcher pork belly chillwave Godard locavore. Bitters small batch banh mi, ethnic distillery you probably haven't heard of them Schlitz aesthetic authentic. Tote bag vegan retro scenester. Neutra beard occupy, tattooed Tumblr Kickstarter sartorial Bushwick bespoke quinoa seitan freegan. Whatever butcher distillery, Shoreditch bitters Brooklyn gentrify fingerstache stumptown.</p>
+
 <br>
-<div class="row">
-      <div class="col-sm-3 col-lg-6">
-        <div class="display">  Most recent lost pets :</div>
 
-        <% @lost.each do |pet|%>
-          <br>
-          <%if pet.avatar.present? %>
-              <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:thumb) %>
-          <%else%>
-             <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '100px', width: '100px') %>
-          <%end%>
-          <a href="/pets/<%= pet.id %>"><p>Species:  <%= pet.species %> </p>
-          <p>Last seen at:  <%= pet.loc_lost %> </p>
-
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <div class="display">  Recently lost pets :</div>
+      <% @lost.each do |pet|%>
+        <br>
+        <%if pet.avatar.present? %>
+            <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:thumb) %>
+        <%else%>
+            <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '100px', width: '100px') %>
         <%end%>
+        <a href="/pets/<%= pet.id %>"><p>Species:  <%= pet.species %> </p>
+        <p>Last seen at:  <%= pet.loc_lost %> </p>
+      <%end%>
       </div>
-            <div class="col-sm-3 col-lg-6">
-              <div class="display"> Most recent found pets:</div>
 
-              <% @found.each do  |pet|%>
-                  <br>
-                  <%if pet.avatar.present? %>
-                    <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:thumb) %>
-                  <%else%>
-                    <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '100px', width: '100px') %>
-                  <%end%>
-                  <a href="/pets/<%= pet.id %>"><p>Species:  <%= pet.species %> </p>
-                  <p>Found near:  <%= pet.loc_lost %> </p>
 
-              <%end%>
-            </div>
-        </div>
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4">
+    <div class="display"> Recently found pets:</div>
+
+    <% @found.each do  |pet|%>
+        <br>
+        <%if pet.avatar.present? %>
+          <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:thumb) %>
+        <%else%>
+          <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '100px', width: '100px') %>
+        <%end%>
+        <a href="/pets/<%= pet.id %>"><p>Species:  <%= pet.species %> </p>
+        <p>Found near:  <%= pet.loc_lost %> </p>
+    <%end%>
+  </div>
+</div>
     </div>
   </div>
 </div>
