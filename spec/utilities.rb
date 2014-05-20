@@ -1,6 +1,6 @@
 
 def sign_in_as(user)
-  visit '/'
+  visit root_path
   click_link 'Sign in'
   within("#new_user") do
     fill_in 'Email', :with => user.email
@@ -10,7 +10,7 @@ def sign_in_as(user)
 end
 
 def sign_up_with(email, password='74108520')
-  visit '/users/sign_up'
+  visit new_user_registration_path
   within('#new_user') do
     fill_in 'Email', with: email
     fill_in 'Password', with: password

@@ -2,14 +2,14 @@ require 'spec_helper'
 
 feature 'Visiting homepage' do
   scenario 'Not logged in' do
-    visit '/'
+    visit root_path
     expect(page).to have_content 'Sign up'
     expect(page).to have_content 'Sign in'
   end
 
   scenario 'Logged in' do
     sign_in_as(create(:user))
-    visit '/'
+    visit root_path
     expect(page).to have_content 'Edit profile'
     expect(page).to have_content 'Sign out'
   end
@@ -62,7 +62,7 @@ feature 'Visiting the edit profile page' do
   end
 
   scenario 'Not logged in' do
-    visit '/users/edit'
+    visit edit_user_registration_path
     expect(page).to have_content 'You need to sign in or sign up before continuing.'
   end
 end

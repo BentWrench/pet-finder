@@ -1,7 +1,5 @@
 require "spec_helper"
 
-
-
 describe "lost or found pet" do
   before :each do
     @user = create(:user)
@@ -10,7 +8,7 @@ describe "lost or found pet" do
   describe "add new found pet" do
     it "creates a new listing" do
       sign_in_as(@user)
-      visit "/"
+      visit root_path
       click_link 'Report a Lost Pet'
       select("Bird", :from => "pet_species")
       fill_in "Breed", :with => "Eagle"
