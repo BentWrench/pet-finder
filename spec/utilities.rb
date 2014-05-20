@@ -9,7 +9,7 @@ def sign_in_as(user)
   click_button 'Sign in'
 end
 
-def sign_up_with(email, password='12345678')
+def sign_up_with(email, password='74108520')
   visit '/users/sign_up'
   within('#new_user') do
     fill_in 'Email', with: email

@@ -18,8 +18,7 @@ describe "lost or found pet" do
       select("Downtown", :from => "pet_loc_lost")
       fill_in 'Description', :with => "My eagle done flew away!"
       click_button "Create Pet"
-      save_and_open_page
-      page.should have_content "Pet description: My eagle done flew away!"
+      page.should have_content "My eagle done flew away!"
     end
   end
 
@@ -40,7 +39,7 @@ describe "lost or found pet" do
       select("NE Portland", :from => "pet_loc_lost")
       fill_in 'Description', :with => "gopher gopher gopher"
       click_button "Update Pet"
-      page.should have_content "Pet description: gopher gopher gopher"
+      page.should have_content "gopher gopher gopher"
     end
   end
 

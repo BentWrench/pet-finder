@@ -19,7 +19,7 @@ feature 'Signing up' do
   scenario 'Providing valid credentials' do
     email = 'nil@nil.com'
     sign_up_with(email)
-    expect(page).to have_content 'Logged in as ' + email + '.'
+    expect(page).to have_content 'Logged in as ' + email
     expect(page).to have_content 'Welcome! You have signed up successfully.'
   end
 
@@ -37,7 +37,6 @@ feature 'Signing in' do
 
   scenario 'Providing correct credentials' do
     sign_in_as(@user)
-    # save_and_open_page
     expect(page).to have_content 'Signed in successfully.'
   end
 end

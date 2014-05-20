@@ -1,8 +1,16 @@
-
-
 <p><%= @user.email %> is an administrator</p>
 <ul>
   <% User.all.each do |user| %>
-    <li><%= user.email %>: <%= user.pets.count {|pet| pet.lost } %> lost pets</li>
+    <li><%= link_to "#{user.email}", user_path(user) %>
+      <% if can? :delete, user %>
+        | <%= link_to 'Delete account', user_path(user), data: { confirm: 'You sure?', method: 'delete' } %>
+      <% end %>
+    </li>
   <% end %>
 </ul>
+
+<% if can? :create, User %>
+  <p><%= link_to 'Create new admin', users_admin_new_path %></p>
+<% end %>
+
+
