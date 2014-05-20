@@ -1,46 +1,51 @@
-<div class="row">
-  <div class="col-sm-3 col-lg-6">
-    <div class="display1"><h1> Most recent lost pets :</h1></div>
-    <% @lost.each do |pet|%>
-    <br>
-      <%if pet.avatar.present? %>
-          <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:medium) %></a>
-      <%else%>
-         <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '300px', width: '300px') %></a>
+<br>
+<div class="container-fluid">
+<div class="row-fluid">
+  <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+    <div class="display1">  <h1> Most recent lost pets :</h1></div>
+      <% @lost.each do |pet|%>
+        <br>
+        <%if pet == true %>
+          <h1>There are presently no lost pets </h1>
+        <%else%>
+          <%if pet.avatar.present? %>
+            <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:medium) %>
+          <%else%>
+            <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '300px', width: '300px') %>
+          <%end%>
+            <a href="/pets/<%= pet.id %>"><p>Species:  <%= pet.species %> </p>
+            <p>Last seen at:  <%= pet.loc_lost %> </p>
+            <p>Post created: <%= pet.created_at.to_formatted_s(:short)  %></p>
+            <p>Description:  <%= pet.description %> </p>
+        <%end%>
       <%end%>
-      <% if can? :read, pet.user %>
-        <p>Owner: <%= pet.user.email %></p>
-      <% end %>
-      <a href="/pets/<%= pet.id %>">
-        <p>Species:  <%= pet.species %></p>
-        <p>Last seen at:  <%= pet.loc_lost %></p>
-        <p>Description:  <%= pet.description %></p>
-      </a>
-    <%end%>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <div class="display1"> <h1> Most recent found pets:</h1></div>
+        <% @found.each do  |pet|%>
+        <br>
+          <%if !pet.present? %>
+            <h1>There are presently no lost pets </h1>
+          <%else%>
+            <%if pet.avatar.present? %>
+              <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:medium) %>
+            <%else%>
+              <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '300px', width: '300px') %>
+              <%end%>
+                <a href="/pets/<%= pet.id %>"><p>Species:  <%= pet.species %> </p>
+                <p>Found near:  <%= pet.loc_lost %> </p>
+                <p>Post created: <%= pet.created_at.to_formatted_s(:short)  %></p>
+                <p>Description:  <%= pet.description %> </p>
+            <%end%>
+          <%end%>
+      </div>
+    </div>
   </div>
 
-  <div class="col-sm-3 col-lg-6">
-    <div class="display1"><h1> Most recent found pets:</h1></div>
-    <% @found.each do  |pet| %>
-      <br>
-      <%if pet.avatar.present? %>
-        <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:medium) %></a>
-      <%else%>
-        <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '300px', width: '300px') %></a>
-      <%end%>
-      <% if can? :read, pet.user %>
-        <p>Owner: <%= pet.user.email %></p>
-      <% end %>
-      <a href="/pets/<%= pet.id %>">
-        <p>Species: <%= pet.species %></p>
-        <p>Found near: <%= pet.loc_lost %></p>
-        <p>Description: <%= pet.description %></p>
-      </a>
-    <%end%>
-  </div>
 
   <br><br><br><br><br><br><br><br>
 
-  <div class="container">
+
   </div>
- </div>
+</div>

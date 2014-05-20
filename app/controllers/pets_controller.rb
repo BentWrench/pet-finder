@@ -65,21 +65,17 @@ class PetsController < ApplicationController
   def destroy
     @pet = Pet.find params[:id]
     authorize! :destroy, @pet
-    if !current_user
-      render "please_sign_in.html.erb"
-    else
-      @pet = Pet.find params[:id]
-      @pet.destroy
-      flash[:notice] = 'Pet listing successfully deleted.'
-      redirect_to pets_path
-    end
+    @pet.destroy
+    flash[:notice] = 'Pet listing successfully deleted.'
+    redirect_to pets_path
+
   end
 
 
 
 private
   def pet_params
-    params.require(:pet).permit(:id, :user_id, :species, :breed, :color, :loc_lost, :lost, :description, :avatar)
+    params.require(:pet).permit(:user_id, :species, :breed, :color, :loc_lost, :lost, :description, :avatar)
   end
 
 
