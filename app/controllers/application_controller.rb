@@ -6,8 +6,9 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   rescue_from CanCan::AccessDenied do |exception|
-    flash[:alert] = 'Access denied.'
-    redirect_to root_url
+    flash[:alert] = 'In order to list a pet please sign in or sign up.'
+    # redirect_to root_path
+    redirect_to new_user_session_path
   end
 
   before_action :configure_permitted_parameters, if: :devise_controller?
