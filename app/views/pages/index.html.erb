@@ -56,3 +56,7 @@
 </div>
  <br><br><br><br><br><br><br>
 
+<% if can? :index, User %>
+  <p align='center'><%= link_to 'Users directory', users_path %></p>
+<% end %>
+

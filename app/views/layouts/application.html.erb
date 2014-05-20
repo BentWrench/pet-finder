@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+
   <div class="container">
     <div class="sign_in_links" align="right">
         <% if user_signed_in? %>
@@ -19,7 +20,6 @@
         <% end %>
         </div>
         <% if can? :index, User %>
-        <%= link_to 'Users directory', users_path %>
       <% end %>
 
       <%= flash[:alert] %>

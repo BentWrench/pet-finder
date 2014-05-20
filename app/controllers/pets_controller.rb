@@ -10,9 +10,10 @@ class PetsController < ApplicationController
   def new
     authorize! :create, Pet
     if !current_user
-      render "please_sign_in.html.erb"
+      render "please_sign_in"
     else
       @pet = Pet.new(:lost => params[:lost])
+      render 'new'
     end
   end
 
@@ -67,6 +68,7 @@ class PetsController < ApplicationController
     @pet.destroy
     flash[:notice] = 'Pet listing successfully deleted.'
     redirect_to pets_path
+
   end
 
 
