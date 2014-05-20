@@ -1,95 +1,54 @@
 <%= content_for(:title, "Show Pet | Pet Finder" ) %>
 
+    <% if @pet.lost %>
+      <p><h1>Reported Lost:</h1></p>
+    <% else %>
+      <p><h1>Reported Found:</h1></p>
+    <% end %>
 
-<div class="col-sm-3 col-lg-6">
-  <% if @pet.lost %>
+    </h1>
+    <br>
 
-    <p><h1>Reported Lost:</h1></p>
-  <% else %>
-    <p><h1>Reported Found:</h1></p>
-  <% end %>
-
-  </h1>
-  <br>
 <div class="row-fluid">
   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 
-    <%if @pet.avatar.present? %>
-        <p><%= image_tag @pet.avatar.url(:large) %></p>
-      <%else%>
-          <%= image_tag("No_image_available.png", height: '300px', width: '300px') %>
-      <%end%>
-    <h3>Species:  <%= @pet.species %> </h3>
-    <br>
-    <h3>Breed:  <%= @pet.breed %> </h3>
+      <%if @pet.avatar.present? %>
+          <p><%= image_tag @pet.avatar.url(:large) %></p>
+        <%else%>
+            <%= image_tag("No_image_available.png", height: '300px', width: '300px') %>
+        <%end%>
+      <h3>Species:  <%= @pet.species %> </h3>
+      <br>
+      <h3>Breed:  <%= @pet.breed %> </h3>
 
-    <h3>Description:  <%= @pet.description %> </h3>
+      <h3>Description:  <%= @pet.description %> </h3>
 
-    <h3>Color:  <%= @pet.color %> </h3>
-    <h3>Post created: <%= @pet.created_at.to_formatted_s(:short)  %></p>
-    <h3>Location:  <%= @pet.loc_lost %> </h3>
-    <br><br><br><br><br><br><br>
+      <h3>Color:  <%= @pet.color %> </h3>
+      <h3>Post created: <%= @pet.created_at.to_formatted_s(:short)  %></p>
+      <h3>Location:  <%= @pet.loc_lost %> </h3>
+      <br><br><br><br><br><br><br>
   </div>
-
-      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-        <% if @pet.lost != true %>
-          <p><%=link_to "Do you know who I belong to?", pets_path, :class => "btn btn-danger"  %>
-
-        <% else%>
-          <p><%=link_to "Have you seen me?", pets_path, :class => "btn btn-danger"  %>
-        <%end%>
-        <p><%=link_to "Return to pet index", pets_path, :class => "btn btn-danger"  %></p>
-
-        <% if can? :edit, @pet %>
-          <p><%= link_to "Edit This Listing", edit_pet_path, :class => "btn btn-danger"  %></p>
-        <%end%>
-        <% if can? :destroy, @pet %>
-          <p><%= link_to "Delete This Listing", pet_path(@pet),
-                                 :data => {:confirm => "You sure?",
-                                           :method => "delete"},
-                                 :class => "btn btn-danger" %></p>
-        <%end%>
-        <br><br><br><br><br><br><br>
-    </div>
-
-  <%if @pet.avatar.present? %>
-    <p><%= image_tag @pet.avatar.url(:large) %></p>
-  <%else%>
-    <%= image_tag("No_image_available.png", height: '15%', width: '15%') %>
-  <%end%>
-
-  <h3>Species: <%= @pet.species %></h3>
-  <br>
-  <h3>Breed: <%= @pet.breed %></h3>
-
-  <h3>Description: <%= @pet.description %></h3>
-
-  <h3>Color: <%= @pet.color %></h3>
-
-  <h3>Location:  <%= @pet.loc_lost %></h3>
-  <br><br><br><br><br><br><br>
 </div>
+<div class="row-fluid">
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+          <% if @pet.lost != true %>
+            <p><%=link_to "Do you know who I belong to?", pets_path, :class => "btn btn-danger"  %>
 
-<div class="row">
-  <div class="col-sm-3 col-lg-6">
-    <br>
-    <% if !@pet.lost %>
-      <p><%=link_to "Do you know who I belong to?", pets_path, :class => "btn btn-danger"  %> +Need to add contact page</p>
-    <% else%>
-      <p><%=link_to "Have you seen me?", pets_path, :class => "btn btn-danger"  %> +Need to add contact
-    <%end%>
+          <% else%>
+            <p><%=link_to "Have you seen me?", pets_path, :class => "btn btn-danger"  %>
+          <%end%>
+          <p><%=link_to "Return to pet index", pets_path, :class => "btn btn-danger"  %></p>
 
-    <p><%=link_to "Return to pet index", pets_path, :class => "btn btn-danger"  %></p>
-
-    <% if can? :edit, @pet %>
-      <p><%= link_to "Edit This Listing", edit_pet_path, :class => "btn btn-danger"  %></p>
-    <%end%>
-    <% if can? :destroy, @pet %>
-      <p><%= link_to "Delete This Listing", pet_path(@pet),
-                             :data => {:confirm => "You sure?",
-                                       :method => "delete"},
-                             :class => "btn btn-danger" %></p>
-    <%end%>
-    <br><br><br><br><br><br><br>
+          <% if can? :edit, @pet %>
+            <p><%= link_to "Edit This Listing", edit_pet_path, :class => "btn btn-danger"  %></p>
+          <%end%>
+          <% if can? :destroy, @pet %>
+            <p><%= link_to "Delete This Listing", pet_path(@pet),
+                                   :data => {:confirm => "You sure?",
+                                             :method => "delete"},
+                                   :class => "btn btn-danger" %></p>
+          <%end%>
+          <br><br><br><br><br><br><br>
   </div>
+</div>
 </div>
