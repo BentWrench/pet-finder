@@ -10,4 +10,7 @@ describe Message do
     test_message = Message.new({"message" => "I may have found your lost pet.", "sender_email" => "tonyCEO@starkindustries.com"})
     test_message.should be_an_instance_of Message
   end
+
+
+
 end

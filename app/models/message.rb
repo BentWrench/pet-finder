@@ -8,3 +8,4 @@ class Message
     @sender_email = info["sender_email"]
   end
 end
+

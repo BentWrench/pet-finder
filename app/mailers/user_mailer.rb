@@ -7,7 +7,7 @@ class UserMailer < ActionMailer::Base
     @message = message.message
     @sender_email = message.sender_email
 
-    mail(to: @owner_email, subject: 'Thank you for signing up for the Oregon Humane Societies pet tracker')
+    mail(to: @owner_email, subject: 'Oregon Humane Society- Someone may have found your lost pet!')
    end
 end
 
