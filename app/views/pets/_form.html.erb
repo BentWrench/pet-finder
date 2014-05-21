@@ -4,15 +4,18 @@
       <%= f.hidden_field :user_id, value: current_user.id %>
       <div class="field">
         <%= f.select :species, [
-            ['Bird'],
-            ['Cat'],
             ['Dog'],
+            ['Cat'],
+            ['Bird'],
             ['Reptile'],
-            ['Other - Please Describe']] %>
+            ['Other - Please Describe']],
+            label: "Please enter species"%>
       </div><br>
 
       <div class="field">
-        <%= f.text_field :breed, label: "Breed", placeholder: "Enter a breed" %>
+        <%= f.text_field :breed,
+                         label: "Breed",
+                         placeholder: "Please enter a breed" %>
       </div><br>
         <div class="field">
         <%= f.select :color, [
@@ -24,11 +27,6 @@
       </div><br>
 
       <div class="field">
-        <%if @pet.lost == true %>
-          <%= f.label :area_last_seen %><br>
-        <%else%>
-          <%= f.label :area_found %><br>
-        <%end%>
           <%= f.select :loc_lost, [
               ['Downtown'],
               ['NE Portland'],
@@ -50,26 +48,28 @@
               ['Oregon City'],
               ['Troutdale'],
               ['Wood Village'],
-              ['Fairview'] ]  %>
+              ['Fairview'] ],
+
+              label: (@pet.lost ? "Area last seen in" : "Area pet found")%>
          </div><br>
 
       <%= f.hidden_field :lost %>
 
       <div class="field">
-        <%= f.text_area :description, :size => "54", label: "Description", placeholder: "Please enter a description of the animal"  %><br>
+        <%= f.text_area :description, size: "54",
+                                      label: "Description",
+                                      placeholder: "Please enter a description of the animal"  %><br>
       </div><br><br>
 
       <%if @pet.avatar.present? %>
-        <p><%= image_tag @pet.avatar.url(:large) %></p>
+        <p><%= image_tag @pet.avatar.url(:thumb) %></p>
       <%else%>
           <%= image_tag("No_image_available.png", height: '15%', width: '15%') %>
       <%end%>
+      <%= f.file_field :avatar,  label: "Add photo:" %>
 
-      <div class="field">
-        <%= f.file_field :avatar,  label: "Add photo:" %>
-      </div>
 
-    <br><br>
+       <br><br>
 
       <%= f.submit(:class => "btn btn-primary") %>
     <% end %>
