@@ -45,12 +45,6 @@ class PetsController < ApplicationController
     end
   end
 
-  # Ellie's Alternate method:
-  #   begin
-  #     @pet = Pet.find params[:id]
-  #   rescue ActiveRecord::RecordNotFound => e
-  #     @pet = nil
-  #   end
 
   def update
     @pet = Pet.find params[:id]
@@ -68,7 +62,6 @@ class PetsController < ApplicationController
     @pet.destroy
     flash[:notice] = 'Pet listing successfully deleted.'
     redirect_to pets_path
-
   end
 
 

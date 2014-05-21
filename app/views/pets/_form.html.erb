@@ -1,7 +1,6 @@
-<%= form_for @pet do |f| %>
+<%= bootstrap_form_for(@pet) do |f| %>
   <%= f.hidden_field :user_id, value: current_user.id %>
-  <div class="form-group">
-    <%= f.label :Type %><br>
+  <div class="field">
     <%= f.select :species, [
         ['Bird'],
         ['Cat'],
@@ -10,12 +9,10 @@
         ['Other - Please Describe']] %>
   </div><br>
 
-  <div class="form-group">
-    <%= f.label :breed %><br>
-    <%= f.text_field :breed %>
+  <div class="field">
+    <%= f.text_field :breed, label: "Breed", placeholder: "Enter a breed" %>
   </div><br>
-    <div class="form-group">
-    <%= f.label :pet_color %><br>
+    <div class="field">
     <%= f.select :color, [
         ['Brown'],
         ['Black'],
@@ -24,7 +21,7 @@
         ['Multi'] ]  %>
   </div><br>
 
-  <div class="form-group">
+  <div class="field">
     <%if @pet.lost == true %>
       <%= f.label :area_last_seen %><br>
     <%else%>
@@ -56,9 +53,8 @@
 
   <%= f.hidden_field :lost %>
 
-  <div class="form-group">
-    <%= f.label :description %><br>
-    <%= f.text_area :description, :size => "54"  %><br>
+  <div class="field">
+    <%= f.text_area :description, :size => "54", label: "Description", placeholder: "Please enter a description of the animal"  %><br>
   </div><br><br>
 
   <%if @pet.avatar.present? %>
@@ -67,9 +63,8 @@
       <%= image_tag("No_image_available.png", height: '15%', width: '15%') %>
   <%end%>
 
-  <div class="form-group">
-    <%= f.label :add_photo %><br>
-    <%= f.file_field :avatar %>
+  <div class="field">
+    <%= f.file_field :avatar,  label: "Add photo:" %>
   </div>
 
 <br><br>
