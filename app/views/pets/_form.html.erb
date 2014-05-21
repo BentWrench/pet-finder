@@ -1,73 +1,77 @@
-<%= bootstrap_form_for(@pet) do |f| %>
-  <%= f.hidden_field :user_id, value: current_user.id %>
-  <div class="field">
-    <%= f.select :species, [
-        ['Bird'],
-        ['Cat'],
-        ['Dog'],
-        ['Reptile'],
-        ['Other - Please Describe']] %>
-  </div><br>
+<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <%= bootstrap_form_for(@pet) do |f| %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <div class="field">
+        <%= f.select :species, [
+            ['Bird'],
+            ['Cat'],
+            ['Dog'],
+            ['Reptile'],
+            ['Other - Please Describe']] %>
+      </div><br>
 
-  <div class="field">
-    <%= f.text_field :breed, label: "Breed", placeholder: "Enter a breed" %>
-  </div><br>
-    <div class="field">
-    <%= f.select :color, [
-        ['Brown'],
-        ['Black'],
-        ['White'],
-        ['Grey'],
-        ['Multi'] ]  %>
-  </div><br>
+      <div class="field">
+        <%= f.text_field :breed, label: "Breed", placeholder: "Enter a breed" %>
+      </div><br>
+        <div class="field">
+        <%= f.select :color, [
+            ['Brown'],
+            ['Black'],
+            ['White'],
+            ['Grey'],
+            ['Multi'] ]  %>
+      </div><br>
 
-  <div class="field">
-    <%if @pet.lost == true %>
-      <%= f.label :area_last_seen %><br>
-    <%else%>
-      <%= f.label :area_found %><br>
-    <%end%>
-      <%= f.select :loc_lost, [
-          ['Downtown'],
-          ['NE Portland'],
-          ['NW Portand'],
-          ['SE Portland'],
-          ['SW Portland'],
-          ['N Portland'],
-          ['Beaverton'],
-          ['Gresham'],
-          ['Clackamas'],
-          ['Tigard'],
-          ['Tualatin'],
-          ['Happy Valley'],
-          ['Milwaukie'],
-          ['Lake Oswego'],
-          ['Hilsboro'],
-          ['Aloha'],
-          ['West Linn'],
-          ['Oregon City'],
-          ['Troutdale'],
-          ['Wood Village'],
-          ['Fairview'] ]  %>
-     </div><br>
+      <div class="field">
+        <%if @pet.lost == true %>
+          <%= f.label :area_last_seen %><br>
+        <%else%>
+          <%= f.label :area_found %><br>
+        <%end%>
+          <%= f.select :loc_lost, [
+              ['Downtown'],
+              ['NE Portland'],
+              ['NW Portand'],
+              ['SE Portland'],
+              ['SW Portland'],
+              ['N Portland'],
+              ['Beaverton'],
+              ['Gresham'],
+              ['Clackamas'],
+              ['Tigard'],
+              ['Tualatin'],
+              ['Happy Valley'],
+              ['Milwaukie'],
+              ['Lake Oswego'],
+              ['Hilsboro'],
+              ['Aloha'],
+              ['West Linn'],
+              ['Oregon City'],
+              ['Troutdale'],
+              ['Wood Village'],
+              ['Fairview'] ]  %>
+         </div><br>
 
-  <%= f.hidden_field :lost %>
+      <%= f.hidden_field :lost %>
 
-  <div class="field">
-    <%= f.text_area :description, :size => "54", label: "Description", placeholder: "Please enter a description of the animal"  %><br>
-  </div><br><br>
+      <div class="field">
+        <%= f.text_area :description, :size => "54", label: "Description", placeholder: "Please enter a description of the animal"  %><br>
+      </div><br><br>
 
-  <%if @pet.avatar.present? %>
-    <p><%= image_tag @pet.avatar.url(:large) %></p>
-  <%else%>
-      <%= image_tag("No_image_available.png", height: '15%', width: '15%') %>
-  <%end%>
+      <%if @pet.avatar.present? %>
+        <p><%= image_tag @pet.avatar.url(:large) %></p>
+      <%else%>
+          <%= image_tag("No_image_available.png", height: '15%', width: '15%') %>
+      <%end%>
 
-  <div class="field">
-    <%= f.file_field :avatar,  label: "Add photo:" %>
+      <div class="field">
+        <%= f.file_field :avatar,  label: "Add photo:" %>
+      </div>
+
+    <br><br>
+
+      <%= f.submit(:class => "btn btn-primary") %>
+    <% end %>
   </div>
-
-<br><br>
-
-  <%= f.submit(:class => "btn btn-primary") %>
-<% end %>
+</div>
