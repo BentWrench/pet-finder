@@ -1,0 +1,16 @@
+<%= form_tag pet_messages_path(@pet) do %>
+
+  <%= label_tag :message %> <br>
+  <%= text_area_tag :message, "I may have found your lost pet.", class: "form-control"  %> <br><br>
+
+  <%= label_tag :Please_Enter_Your_Email %> <br>
+  <%= text_field_tag :sender_email  %> <br><br>
+
+  <%= hidden_field_tag "owner_email", @pet.user.email %>
+  <%= hidden_field_tag "owner_phone", @pet.user.phone %>
+  <br>
+  <%= submit_tag "Send Email", class: "btn btn-primary" %>
+  <br><br><br>
+<% end %>
+
+
