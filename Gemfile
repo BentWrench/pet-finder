@@ -27,6 +27,7 @@ group :development, :test do
   gem 'meta_request'
   gem 'rerun'
   gem 'launchy'
+  gem "letter_opener"
 end
 
 group :production do

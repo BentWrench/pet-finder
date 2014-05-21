@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  after_create :send_welcome_email
+  # after_create :send_welcome_email
 
   ROLES = %w(admin user)
   has_many :pets
