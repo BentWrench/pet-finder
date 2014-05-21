@@ -8,7 +8,7 @@ describe "lost or found pet" do
   describe "add new found pet" do
     it "creates a new listing" do
       sign_in_as(@user)
-      visit root_path
+      # visit root_path
       click_link 'Report a Lost Pet'
       select("Bird", :from => "pet_species")
       fill_in "Breed", :with => "Eagle"
@@ -20,12 +20,21 @@ describe "lost or found pet" do
     end
   end
 
+  describe "cancelling account with pets" do
+    it "deletes all pet listings linked to account" do
+      cat = create(:pet, user: @user, species: 'Cat')
+      dog = create(:pet, user: @user, species: 'Dog')
+      sign_in_as(@user)
+      visit edit_user_registration_path
+      click_button 'Cancel my account'
+      visit pets_path
+      expect(page).to_not have_content('Dog')
+      expect(page).to_not have_content('Cat')
+    end
+  end
+
 
   describe "edit listing" do
-    before :each do
-      @user = create(:user)
-    end
-
     it "edits a lost pet listing" do
       pet = create(:pet, user: @user, description: 'eagle eagle eagle' )
       sign_in_as(@user)
@@ -42,10 +51,6 @@ describe "lost or found pet" do
   end
 
   describe "select listing" do
-    before :each do
-      @user = create(:user)
-    end
-
     it "selects an existing listing" do
       pet = create(:pet, user: @user, description: 'eagle eagle eagle' )
       sign_in_as(@user)
