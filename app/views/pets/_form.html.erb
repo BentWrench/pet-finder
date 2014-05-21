@@ -60,13 +60,15 @@
                                       label: "Description",
                                       placeholder: "Please enter a description of the animal"  %><br>
       </div><br><br>
-
-      <%if @pet.avatar.present? %>
-        <p><%= image_tag @pet.avatar.url(:thumb) %></p>
-      <%else%>
-          <%= image_tag("No_image_available.png", height: '15%', width: '15%') %>
-      <%end%>
-      <%= f.file_field :avatar,  label: "Add photo:" %>
+        <%if @pet.created_at.present?%>
+          <%if @pet.avatar.present? %>
+            <p>Current photo:</p>
+            <p><%= image_tag @pet.avatar.url(:medium), class: "img-responsive" %></p>
+          <%else%>
+              <%= image_tag("No_image_available.png", height: '50%', width: '50%', class: "img-responsive")  %>
+          <%end%>
+        <%end%>
+      <%= f.file_field :avatar, label: (@pet.created_at ? "Edit photo:" : "Add photo:") %>
 
 
        <br><br>

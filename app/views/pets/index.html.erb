@@ -9,13 +9,13 @@
             <h1>There are presently no lost pets </h1>
           <%else%>
             <%if pet.avatar.present? %>
-              <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:medium) %>
+              <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:large), class: "img-responsive" %>
             <%else%>
               <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '300px', width: '300px') %>
             <%end%>
               <a href="/pets/<%= pet.id %>"><p>Species:  <%= pet.species %> </p>
               <p>Last seen at:  <%= pet.loc_lost %> </p>
-              <p>Post created: <%= pet.created_at.to_formatted_s(:short)  %></p>
+              <p>Post created: <%= pet.created_at.strftime(" %B %d, %Y")  %></p>
               <p>Description:  <%= pet.description %> </p>
           <%end%>
         <%end%>
@@ -29,13 +29,13 @@
               <h1>There are presently no lost pets </h1>
             <%else%>
               <%if pet.avatar.present? %>
-                <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:medium) %>
+                <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:large), class: "img-responsive" %>
               <%else%>
                 <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '300px', width: '300px') %>
                 <%end%>
                   <a href="/pets/<%= pet.id %>"><p>Species:  <%= pet.species %> </p>
                   <p>Found near:  <%= pet.loc_lost %> </p>
-                  <p>Post created: <%= pet.created_at.to_formatted_s(:short)  %></p>
+                  <p>Post created: <%= pet.created_at.strftime(" %B %d, %Y")  %></p>
                   <p>Description:  <%= pet.description %> </p>
               <%end%>
             <%end%>

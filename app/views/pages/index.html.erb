@@ -24,13 +24,13 @@
       <% @lost.each do |pet|%>
         <br>
         <%if pet.avatar.present? %>
-            <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:thumb) %>
+            <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:medium), class: "img-responsive" %>
         <%else%>
             <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '100px', width: '100px') %>
         <%end%>
         <a href="/pets/<%= pet.id %>"><p>Species:  <%= pet.species %> </p>
         <p>Last seen at:  <%= pet.loc_lost %></p>
-        <p>Post created: <%= pet.created_at.to_formatted_s(:short)  %></p>
+        <p>Post created: <%= pet.created_at.strftime(" %B %d, %Y")  %></p>
       <%end%>
     </div>
 
@@ -39,13 +39,13 @@
       <% @found.each do  |pet|%>
         <br>
         <%if pet.avatar.present? %>
-          <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:thumb) %>
+          <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:medium), class: "img-responsive" %>
         <%else%>
           <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '100px', width: '100px') %>
         <%end%>
         <a href="/pets/<%= pet.id %>"><p>Species:  <%= pet.species %> </p>
         <p>Found near:  <%= pet.loc_lost %> </p>
-        <p>Post created: <%= pet.created_at.to_formatted_s(:short)  %></p>
+        <p>Post created: <%= pet.created_at.strftime(" %B %d, %Y")  %></p>
       <%end%>
     </div>
   </div>
