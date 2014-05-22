@@ -1,0 +1,22 @@
+
+<br>
+<div class="container-fluid">
+  <div class="row-fluid">
+
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <%= render 'filter' %>
+    </div>
+
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <div class="display1">
+        <h1>Pet listings :</h1>
+      </div>
+      <% @pets.each do |pet| %>
+        <br>
+        <%= render pet %>
+      <%end%>
+    </div>
+
+    <br><br><br><br><br><br><br><br>
+  </div>
+</div>

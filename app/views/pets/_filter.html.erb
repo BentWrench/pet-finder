@@ -1,0 +1,7 @@
+<div class="display1">
+  <h1>Filter:</h1>
+</div>
+<%= form_tag pets_search_path, method: :get do %>
+  <%= select_tag 'Type', options_for_select(Pet::TYPES), name: 'pet[species]' %>
+  <%= submit_tag 'Submit' %>
+<%end%>

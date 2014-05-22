@@ -25,7 +25,7 @@
   </div><br>
 
   <div class="form-group">
-    <%if @pet.lost == true %>
+    <%if @pet.lost %>
       <%= f.label :area_last_seen %><br>
     <%else%>
       <%= f.label :area_found %><br>

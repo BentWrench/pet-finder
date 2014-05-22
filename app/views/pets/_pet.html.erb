@@ -1,0 +1,11 @@
+<% if pet.avatar.present? %>
+  <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:medium) %></a>
+<%else%>
+  <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '300px', width: '300px') %></a>
+<%end%>
+<a href="/pets/<%= pet.id %>">
+	<p>Species:  <%= pet.species %></p>
+	<p>Last seen at:  <%= pet.loc_lost %></p>
+	<p>Post created: <%= pet.created_at.to_formatted_s(:short) %></p>
+	<p>Description:  <%= pet.description %></p>
+</a>

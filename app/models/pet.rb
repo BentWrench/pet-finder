@@ -1,6 +1,11 @@
 class Pet < ActiveRecord::Base
+  TYPES = ['Dog', 'Cat', 'Rodent', 'Misc. mammal', 'Bird', 'Reptile', 'Amphibian', 'Anthropod']
+  
+
   scope :lost, -> { where(lost: true) }
   scope :found, -> { where(lost: false) }
+  scope :type, -> (type) { where(species: type) }
+  scope :subtype, -> (subtype) { where(breed: subtype) }
 
 
   has_attached_file :avatar,
