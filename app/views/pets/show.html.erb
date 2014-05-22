@@ -13,7 +13,7 @@
   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
 
       <%if @pet.avatar.present? %>
-          <p><%= image_tag @pet.avatar.url(:large) %></p>
+          <p><%= image_tag @pet.avatar.url(:large), class: "img-responsive" %></p>
         <%else%>
             <%= image_tag("No_image_available.png", height: '300px', width: '300px') %>
         <%end%>
@@ -24,7 +24,7 @@
       <h3>Description:  <%= @pet.description %> </h3>
 
       <h3>Color:  <%= @pet.color %> </h3>
-      <h3>Post created: <%= @pet.created_at.to_formatted_s(:short)  %></p>
+      <h3>Post created: <%= @pet.created_at.strftime(" %B %d, %Y")  %></p>
       <h3>Location:  <%= @pet.loc_lost %> </h3>
       <br><br><br><br><br><br><br>
   </div>
