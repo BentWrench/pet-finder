@@ -25,5 +25,13 @@ class Pet < ActiveRecord::Base
   belongs_to :user
 
 
+  def self.timed_destroy
+    Pet.all.each do |pet|
+      if Time.now > pet.updated_at + 60*60*18
+        pet.destroy
+      end
+    end
+  end
+
 end
 

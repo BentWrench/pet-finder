@@ -19,5 +19,5 @@
 
 # Learn more: http://github.com/javan/whenever
 every 1.minutes do
-  runner "Pet.where(:delete_time=>nil).destroy_all"
+  runner "Pet.timed_destroy"
 end
