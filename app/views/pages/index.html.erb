@@ -20,34 +20,34 @@
 
 
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-    <div class="display">  Recently lost pets :</div>
+    <p class="display">  Recently lost pets :</p>
       <% @lost.each do |pet|%>
         <br>
         <%if pet.avatar.present? %>
-            <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:medium), class: "img-responsive" %>
+            <%=link_to image_tag(pet.avatar.url(:medium), class: "img-responsive"),  pet_path(pet) %>
         <%else%>
-            <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '100px', width: '100px') %>
+            <%=link_to image_tag("No_image_available.png", height: '100px', width: '100px'),  pet_path(pet) %>
         <%end%>
-        <a href="/pets/<%= pet.id %>"><p>Species:  <%= pet.species %> </p>
+        <%= link_to "Species:" + pet.species,  pet_path(pet) %> </p>
         <p>Last seen at:  <%= pet.loc_lost %></p>
         <p>Post created: <%= pet.created_at.strftime(" %B %d, %Y")  %></p>
       <%end%>
     </div>
 
   <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-    <div class="display"> Recently found pets:</div>
-        div
+    <p class="display"> Recently found pets:</p>
+
         <% @found.each do  |pet|%>
           <br>
           <%if pet.avatar.present? %>
-            <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:medium), class: "img-responsive" %>
-          <%else%>
-            <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '100px', width: '100px') %>
-          <%end%>
-          <a href="/pets/<%= pet.id %>"><p>Species:  <%= pet.species %> </p>
-          <p>Found near:  <%= pet.loc_lost %> </p>
-          <p>Post created: <%= pet.created_at.strftime(" %B %d, %Y")  %></p>
+            <%=link_to image_tag(pet.avatar.url(:medium), class: "img-responsive"),  pet_path(pet) %>
+        <%else%>
+            <%=link_to image_tag("No_image_available.png", height: '100px', width: '100px'),  pet_path(pet) %>
         <%end%>
+        <%= link_to "Species:" + pet.species,  pet_path(pet) %> </p>
+        <p>Last seen at:  <%= pet.loc_lost %></p>
+        <p>Post created: <%= pet.created_at.strftime(" %B %d, %Y")  %></p>
+      <%end%>
     </div>
   </div>
 </div>

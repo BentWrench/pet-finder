@@ -22,24 +22,19 @@
       </div>
 
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <div class="display1"> <h1> Most recent found pets:</h1></div>
-          <% @found.each do  |pet|%>
+        <h1 class="display1"> Most recent found pets:</h1>
+          <% @found.each do |pet|%>
           <br>
-            <%if !pet.present? %>
-              <h1>There are presently no lost pets </h1>
+            <%if pet.avatar.present? %>
+              <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:large), class: "img-responsive" %>
             <%else%>
-              <%if pet.avatar.present? %>
-                <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:large), class: "img-responsive" %>
-              <%else%>
-                <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '300px', width: '300px') %>
-                <%end%>
-                  <a href="/pets/<%= pet.id %>"><p>Species:  <%= pet.species %> </p>
-                  <p>Found near:  <%= pet.loc_lost %> </p>
-                  <p>Post created: <%= pet.created_at.strftime(" %B %d, %Y")  %></p>
-                  <p>Description:  <%= pet.description %> </p>
-              <%end%>
+              <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '300px', width: '300px') %>
             <%end%>
-        </div>
+                <a href="/pets/<%= pet.id %>"><p>Species:  <%= pet.species %> </p>
+                <p>Found near:  <%= pet.loc_lost %> </p>
+                <p>Post created: <%= pet.created_at.strftime(" %B %d, %Y")  %></p>
+                <p>Description:  <%= pet.description %> </p>
+          <%end%>
       </div>
     </div>
     <br><br><br><br><br><br><br><br>
