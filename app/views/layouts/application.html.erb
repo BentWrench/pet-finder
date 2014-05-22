@@ -20,25 +20,23 @@
           <%= link_to "Sign in", new_user_session_path %>
         <% end %>
         </div>
-        <% if can? :index, User %>
-      <% end %>
+
 
       <%= flash[:alert] %>
       <%= flash[:notice] %>
 
-      <div class="col-sm-4 col-lg-4 header-images" ><%= link_to image_tag('OHS-Logo-2011.png', class:'logo'), root_path%></div>
-      <div class="col-sm-6 col-lg-8 header-images" ><%= link_to image_tag('header4.jpg', height: '8%', width: '100%'), root_path %></div>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 header-images" ><%= link_to image_tag('OHS-Logo-2011.png', class:'logo'), root_path%></div>
+      <div class=" col-sm-8 col-md-8 col-lg-8 header-images" ><%= link_to image_tag('header4.jpg', height: '8%', width: '100%'), root_path %></div>
     </div>
   </div>
 </div>
 
 <div class="container">
-
-
   <%= yield %>
 </div>
 
 </body>
+<br><br><br><br><br><br><br>
 
 <div class="container">
   <div class="panel-footer" align='center'>

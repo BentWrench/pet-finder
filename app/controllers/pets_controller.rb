@@ -52,12 +52,6 @@ class PetsController < ApplicationController
     end
   end
 
-  # Ellie's Alternate method:
-  #   begin
-  #     @pet = Pet.find params[:id]
-  #   rescue ActiveRecord::RecordNotFound => e
-  #     @pet = nil
-  #   end
 
   def update
     @pet = Pet.find(params[:id])
