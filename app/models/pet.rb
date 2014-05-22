@@ -27,7 +27,7 @@ class Pet < ActiveRecord::Base
 
   def self.timed_destroy
     Pet.all.each do |pet|
-      if Time.now > pet.updated_at + 60*60*18
+      if Time.now > pet.updated_at + 60*60*24*180
         pet.destroy
       end
     end
