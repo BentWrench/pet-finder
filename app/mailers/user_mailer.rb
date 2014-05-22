@@ -9,5 +9,10 @@ class UserMailer < ActionMailer::Base
 
     mail(to: @owner_email, subject: 'Oregon Humane Society- Someone may have found your lost pet!')
    end
-end
 
+  def welcome_email(user)
+    @user = user
+    @url  = 'http://example.com/login'
+    mail(to: @user.email, subject: "Welcome to the Oregon Humane Society's Pet Finder!")
+  end
+end
