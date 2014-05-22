@@ -1,12 +1,17 @@
 class Pet < ActiveRecord::Base
+  include Filterable
+
   TYPES = ['Dog', 'Cat', 'Rodent', 'Misc. mammal', 'Bird', 'Reptile', 'Amphibian', 'Anthropod']
-  
+  LOCATIONS = ['Downtown', 'NE Portland', 'NW Portand', 'SE Portland', 'SW Portland', 'N Portland',
+               'Beaverton', 'Gresham', 'Clackamas', 'Tigard', 'Tualatin', 'Happy Valley', 'Milwaukie',
+               'Lake Oswego', 'Hilsboro', 'Aloha', 'West Linn', 'Oregon City', 'Troutdale', 'Wood Village', 'Fairview']
 
-  scope :lost, -> { where(lost: true) }
-  scope :found, -> { where(lost: false) }
-  scope :type, -> (type) { where(species: type) }
-  scope :subtype, -> (subtype) { where(breed: subtype) }
 
+  scope :lost, -> (bool=true) { self.where(lost: bool) }
+  scope :found, -> { self.where(lost: false) }
+  scope :species, -> (type) { self.where(species: type) }
+  scope :subtype, -> (subtype) { self.where(breed: subtype) }
+  scope :loc_lost, -> (location) { self.where(loc_lost: location) }
 
   has_attached_file :avatar,
                     :styles => { :large => "600x600>",

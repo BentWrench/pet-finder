@@ -8,10 +8,8 @@ class PetsController < ApplicationController
 
   def search
     authorize! :index, Pet
-    @pets = Pet.lost
-    if pet_params[:species].present?
-      @pets = Pet.type(pet_params[:species])
-    end
+    @users = User.all
+    @pets = Pet.filter(filtering_params)
   end
 
   def new
@@ -76,6 +74,11 @@ class PetsController < ApplicationController
 private
   def pet_params
     params.require(:pet).permit(:user_id, :species, :breed, :color, :loc_lost, :lost, :description, :avatar)
+  end
+
+
+  def filtering_params
+    params.require(:search).permit(:user_id, :species, :breed, :color, :loc_lost, :lost)
   end
 
 

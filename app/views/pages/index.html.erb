@@ -10,7 +10,9 @@
     <br>
     <p><%= link_to "View list of pets", pets_path, class: "btn btn-default test2" %></p>
     <br>
-    <p><%= link_to 'Search lost pets', pets_search_path(:pet => {  }), class: "btn btn-default test2" %></p>
+    <p><%= link_to 'Search lost pets', pets_search_path(search: { lost: true }), class: "btn btn-default test2" %></p>
+    <br>
+    <p><%= link_to 'Search found pets', pets_search_path(search: { lost: false}), class: "btn btn-default test2" %></p>
     <br>
     <% if can? :index, User %>
       <p align='center'><%= link_to 'Users directory', users_path %></p>
