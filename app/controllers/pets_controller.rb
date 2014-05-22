@@ -65,6 +65,12 @@ class PetsController < ApplicationController
   end
 
 
+  def self.timed_destroy
+      if Time.now.utc < @pet.updated_at + 5
+        @pet.destroy_all
+      end
+  end
+
 
 private
   def pet_params

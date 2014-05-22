@@ -25,14 +25,5 @@ class Pet < ActiveRecord::Base
   belongs_to :user
 
 
-  def timed_destroy
-    @pets = Pet.all
-    @pets.each do |pet|
-      if Time.now.utc < pet.created_at + 5
-        pet.destroy
-      end
-    end
-  end
-
 end
 
