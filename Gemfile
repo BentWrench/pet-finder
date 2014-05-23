@@ -12,7 +12,6 @@ gem 'devise'
 gem 'cancancan'
 gem 'bootstrap-sass'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
-gem 'whenever', :require => false
 gem 'bootstrap_form'
 gem 'rufus-scheduler'
 
