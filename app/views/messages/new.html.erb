@@ -4,7 +4,7 @@
 
       <%= label_tag :message %> <br>
 
-      <% if @pet.lost == true %>
+      <% if @pet.lost %>
         <%= text_area_tag :message, "I may have found your lost pet.", class: "form-control" %>
       <% else %>
         <%= text_area_tag :message, "I may know the owner of that pet!", class: "form-control" %>
@@ -23,6 +23,3 @@
     <% end %>
   </div>
 </div>
-
-
-

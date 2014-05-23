@@ -2,7 +2,7 @@
 <div class="container-fluid">
   <div class="row-fluid">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-      <div class="display1"><h1> Most recent lost pets :</h1></div>
+      <div class="display1"><h1> Recent lost pets :</h1></div>
         <% @lost.each do |pet|%>
           <br>
           <%if pet.avatar.present? %>
@@ -18,7 +18,7 @@
       </div>
 
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <div class="display1"><h1> Most recent found pets :</h1></div>
+        <div class="display1"><h1> Recent found pets :</h1></div>
         <% @found.each do |pet|%>
           <br>
           <%if pet.avatar.present? %>
