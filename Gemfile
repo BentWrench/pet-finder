@@ -16,8 +16,6 @@ gem 'bootstrap_form'
 gem 'rufus-scheduler'
 
 
-
-
 group :development, :test do
   gem 'spring'
   gem 'rspec-rails'
@@ -31,6 +29,7 @@ group :development, :test do
   gem 'meta_request'
   gem 'rerun'
   gem 'launchy'
+  gem "letter_opener"
 end
 
 group :production do

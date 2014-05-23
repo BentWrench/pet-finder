@@ -1,9 +1,8 @@
-
 <h3> <%= flash[:alert] %> </h3>
+
 <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-<h2>Sign in</h2>
-
+    <h2>Sign in</h2>
     <%= bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
         <%= f.email_field :email, autofocus: true %>
         <%= f.password_field :password, autocomplete: "off" %>
@@ -12,30 +11,20 @@
         <% end -%>
         <br><br>
         <%= f.submit "Sign in" %>
-      <% end %>
-
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+    <% end %>
+    <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
   </div>
 
   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-
-<h2>Sign up</h2>
-
+    <h2>Sign up</h2>
     <%= bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= devise_error_messages! %>
-
-
-
       <%= f.email_field :email, autofocus: true %>
-
       <%= f.password_field :password, autocomplete: "off" %>
-
       <%= f.password_field :password_confirmation, autocomplete: "off" %>
-
       <%= f.phone_field :phone %>
       <%= f.submit "Sign up" %>
     <% end %>
-
-  <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
+    <%= link_to "Forgot your password?", new_password_path(resource_name) %><br />
   </div>
 </div>

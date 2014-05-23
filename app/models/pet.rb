@@ -32,6 +32,5 @@ class Pet < ActiveRecord::Base
       end
     end
   end
-
 end
 
