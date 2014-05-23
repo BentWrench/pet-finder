@@ -19,5 +19,5 @@
 
 # Learn more: http://github.com/javan/whenever
 every 1.minutes do
-  runner "Pet.timed_destroy", environment => "development"
+  runner "Pet.timed_destroy"
 end
