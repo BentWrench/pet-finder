@@ -4,36 +4,32 @@
   <title>Lost Pet Finder</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  
   <%= csrf_meta_tags %>
 </head>
 <body>
 
   <div class="container">
     <div class="sign_in_links" align="right">
-        <% if user_signed_in? %>
-          <span class="logged-in-as">Logged in as <strong><%= current_user.email %></strong></span>
-          <%= link_to 'Edit profile', edit_user_registration_path %> |
-          <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-        <% else %>
-          <%= link_to "Sign up", new_user_registration_path %> |
-          <%= link_to "Sign in", new_user_session_path %>
-        <% end %>
-        </div>
+      <% if user_signed_in? %>
+        <span class="logged-in-as">Logged in as <strong><%= current_user.email %></strong></span>
+        <%= link_to 'Edit profile', edit_user_registration_path %> |
+        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path %> |
+        <%= link_to "Sign in", new_user_session_path %>
+      <% end %>
+    </div>
 
+    <%= flash[:alert] %>
+    <%= flash[:notice] %>
 
-      <%= flash[:alert] %>
-      <%= flash[:notice] %>
-
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 header-images" ><%= link_to image_tag('OHS-Logo-2011.png', class:'logo'), root_path%></div>
-      <div class=" col-sm-8 col-md-8 col-lg-8 header-images" ><%= link_to image_tag('header4.jpg', height: '8%', width: '100%'), root_path %></div>
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 header-images" ><%= link_to image_tag('OHS-Logo-2011.png', class: 'logo'), root_path%></div>
+    <div class=" col-sm-8 col-md-8 col-lg-8 header-images" ><%= link_to image_tag('header4.jpg', height: '8%', width: '100%'), root_path %></div>
+    
+    <div class="container">
+      <%= yield %>
     </div>
   </div>
-</div>
-
-<div class="container">
-  <%= yield %>
-</div>
 
 </body>
 <br><br><br><br><br><br><br>

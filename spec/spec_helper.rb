@@ -48,4 +48,11 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
   config.include FactoryGirl::Syntax::Methods
+
+  Color.all.each {|color| color.destroy}
+  Pet::COLORS.each do |color|
+    Color.create(name: color)
+  end
 end
+
+

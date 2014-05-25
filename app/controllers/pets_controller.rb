@@ -8,8 +8,15 @@ class PetsController < ApplicationController
 
   def search
     authorize! :index, Pet
-    @users = User.all
     @pets = Pet.filter(filtering_params)
+  end
+
+  def show
+    @pet = Pet.find(params[:id])
+    authorize! :show, @pet
+    if @pet.nil?
+      render 'public/404.html'
+    end
   end
 
   def new
@@ -42,14 +49,6 @@ class PetsController < ApplicationController
     end
   end
 
-  def show
-    @pet = Pet.find(params[:id])
-    authorize! :show, @pet
-    if @pet.nil?
-      render 'public/404.html'
-    end
-  end
-
 
   def update
     @pet = Pet.find(params[:id])
@@ -73,12 +72,12 @@ class PetsController < ApplicationController
 
 private
   def pet_params
-    params.require(:pet).permit(:user_id, :species, :breed, :color, :loc_lost, :lost, :description, :avatar)
+    params.require(:pet).permit(:user_id, :species, :breed, :loc_lost, :lost, :description, :avatar, color_ids: [])
   end
 
 
   def filtering_params
-    params.require(:search).permit(:user_id, :species, :breed, :color, :loc_lost, :lost)
+    params.require(:search).permit(:user_id, :species, :breed, :loc_lost, :lost)
   end
 
 

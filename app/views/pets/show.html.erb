@@ -23,7 +23,12 @@
 
       <h3>Description:  <%= @pet.description %> </h3>
 
-      <h3>Color:  <%= @pet.color %> </h3>
+      <h3>Colors:</h3>
+      <ul>
+        <% @pet.colors.each do |color| %>
+          <li><%= color.name %></li>
+        <%end%>
+      </ul>
       <h3>Post created: <%= @pet.created_at.strftime(" %B %d, %Y")  %></p>
       <h3>Location:  <%= @pet.loc_lost %> </h3>
       <br><br><br><br><br><br><br>

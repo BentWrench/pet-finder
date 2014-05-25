@@ -5,7 +5,7 @@ class Pet < ActiveRecord::Base
   LOCATIONS = ['Downtown', 'NE Portland', 'NW Portand', 'SE Portland', 'SW Portland', 'N Portland',
                'Beaverton', 'Gresham', 'Clackamas', 'Tigard', 'Tualatin', 'Happy Valley', 'Milwaukie',
                'Lake Oswego', 'Hilsboro', 'Aloha', 'West Linn', 'Oregon City', 'Troutdale', 'Wood Village', 'Fairview']
-
+  COLORS = %w(Brown Black White Gray Yellow Green Red Blue)
 
   scope :lost, -> (bool=true) { self.where(lost: bool) }
   scope :found, -> { self.where(lost: false) }
@@ -29,11 +29,21 @@ class Pet < ActiveRecord::Base
   validates :species, :presence => true
   validates :breed, :presence => true
   validates :description, :presence => true
-  validates :color, :presence => true
   validates :loc_lost, :presence => true
 
   belongs_to :user
+  has_and_belongs_to_many :colors
 
+
+  def color_ids
+    self.colors.collect do |color|
+      color.id
+    end
+  end
+
+  def color_ids=(colors)
+    self.colors = Color.find(colors)
+  end
 
   def timed_destroy
     @pets = Pet.all

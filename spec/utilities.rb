@@ -1,4 +1,3 @@
-
 def sign_in_as(user)
   visit '/'
   click_link 'Sign in'
@@ -18,3 +17,4 @@ def sign_up_with(email, password='74108520')
   end
   click_button 'Sign up'
 end
+

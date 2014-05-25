@@ -14,7 +14,7 @@ describe "lost or found pet" do
       click_link 'Report a Lost Pet'
       select("Bird", :from => "pet_species")
       fill_in "Breed", :with => "Eagle"
-      select("Brown", :from => "pet_color")
+      check("Brown")
       select("Downtown", :from => "pet_loc_lost")
       fill_in 'Description', :with => "My eagle done flew away!"
       click_button "Create Pet"
@@ -33,9 +33,10 @@ describe "lost or found pet" do
       sign_in_as(@user)
       visit pet_path(pet)
       click_link "Edit This Listing"
-      select("Other - Please Describe", :from => "pet_species")
+      select("Rodent", :from => "pet_species")
       fill_in "Breed", :with => "Gopher"
-      select("Black", :from => "pet_color")
+      check("Red", 'Blue')
+      uncheck('Black')
       select("NE Portland", :from => "pet_loc_lost")
       fill_in 'Description', :with => "gopher gopher gopher"
       click_button "Update Pet"
