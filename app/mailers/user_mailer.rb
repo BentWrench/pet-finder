@@ -25,6 +25,6 @@ class UserMailer < ActionMailer::Base
     @message = message.message
     @sender_email = message.sender_email
 
-    mail(to: @owner_email, subject: 'Oregon Humane Society- Someone may have found your lost pet!', from: @sender_email)
+    mail(to: @owner_email, subject: 'Oregon Humane Society- Someone may know the pet you have found!', from: @sender_email)
   end
 end

@@ -36,12 +36,11 @@
 </div>
 <div class="row-fluid">
   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-          <% if @pet.lost != true %>
-            <p><%=link_to "Do you know who I belong to?", new_pet_message_path(@pet), :class => "btn btn-danger"  %>
-
-          <% else%>
+          <% if @pet.lost %>
             <p><%=link_to "Have you seen me?", new_pet_message_path(@pet), :class => "btn btn-danger"  %>
-          <%end%>
+          <% else %>
+            <p><%=link_to "Do you know who I belong to?", new_pet_message_path(@pet), :class => "btn btn-danger"  %>
+          <% end %>
           <p><%=link_to "Return to pet index", pets_path, :class => "btn btn-danger"  %></p>
 
           <% if can? :edit, @pet %>
