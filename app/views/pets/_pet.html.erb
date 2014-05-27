@@ -1,15 +1,22 @@
-<% if pet.avatar.present? %>
-  <%= link_to image_tag(pet.avatar.url(:medium), class: "img-responsive"), pet_path(pet) %>
+<%if pet.avatar.present?%>
+  <%= link_to image_tag(pet.avatar.url(size), class: "img-responsive"), pet_path(pet) %>
 <%else%>
-  <%= link_to image_tag("No_image_available.png", height: '300px', width: '300px'), pet_path(pet) %>
+  <%= link_to image_tag("No_image_available.png", height: dimension, width: dimension), pet_path(pet) %>
 <%end%>
-<p><%= link_to "Species #{pet.species}", pet_path(pet) %></p>
-<p><%= pet.lost ? 'Last seen at' : 'Found near' %>: <%= pet.loc_lost %></p>
+<p><%= link_to "Species: #{pet.species}", pet_path(pet) %></p>
+<%owner = pet.user%>
+<%if can? :show, owner%>
+  <p>Owner: <%= link_to owner.email, user_path(owner) %></p>
+<%end%>
 <p>Post created: <%= pet.created_at.strftime(" %B %d, %Y") %></p>
-<p>Description:  <%= pet.description %></p>
-<p>Colors:</p>
-<ul>
-  <% pet.colors.each do |color| %>
-    <li><%= color.name %></li>
-  <%end%>
-</ul>
+<%if show_full%>
+  <p><%= pet.lost ? 'Last seen at' : 'Found near' %>: <%= pet.loc_lost %></p>
+  <p>Breed: <%= pet.breed %></p>
+  <p>Description:  <%= pet.description %></p>
+  <p>Colors:</p>
+  <ul>
+    <%pet.colors.each do |color|%>
+      <li><%= color.name %></li>
+    <%end%>
+  </ul>
+<%end%>

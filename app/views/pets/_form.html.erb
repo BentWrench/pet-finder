@@ -5,27 +5,29 @@
       <div class="field">
         <%= f.select :species, options_for_select(Pet::TYPES, @pet.species),
             label: "Please enter type of pet" %>
-      </div><br>
-
+      </div>
+      <br>
       <div class="field">
         <%= f.text_field :breed,
                          label: "Breed",
                          placeholder: "Please enter a breed" %>
-      </div><br>
-
+      </div>
+      <br>
       <div class="field">
         <% Color.all.each do |color| %>
           <input id='pet_colors_<%= color.id %>' name='pet[color_ids][]' type='checkbox' value='<%= color.id %>'
             <%= if @pet.colors.include? color then 'checked=checked' end %>
           />
-          <label for='pet_colors_<%= color.id %>'><%= color.name %></label>
+          <label for='pet_colors_<%= color.id %>'>
+            <%= color.name %>
+          </label>
           <br>
         <%end%>
       </div>
 
       <div class="field">
           <%= f.select :loc_lost, options_for_select(Pet::LOCATIONS, @pet.loc_lost),
-          label: (@pet.lost ? "Area last seen in" : "Area pet found")%>
+          label: (@pet.lost ? "Area last seen in" : "Area pet found") %>
       </div><br>
 
 
@@ -38,11 +40,15 @@
       </div>
       <br><br>
       <%if @pet.created_at.present?%>
-        <%if @pet.avatar.present? %>
+        <%if @pet.avatar.present?%>
           <p>Current photo:</p>
-          <p><%= image_tag @pet.avatar.url(:medium), class: "img-responsive" %></p>
+          <p>
+            <%= image_tag @pet.avatar.url(:medium), class: "img-responsive" %>
+          </p>
         <%else%>
+          <p>
             <%= image_tag("No_image_available.png", height: '50%', width: '50%', class: "img-responsive")  %>
+          </p>
         <%end%>
       <%end%>
       <%= f.file_field :avatar, label: (@pet.created_at ? "Edit photo:" : "Add photo:") %>
@@ -50,6 +56,6 @@
       <br><br>
 
       <%= f.submit(:class => "btn btn-primary") %>
-    <% end %>
+    <%end%>
   </div>
 </div>

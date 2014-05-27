@@ -1,58 +1,39 @@
 <%= content_for(:title, "Show Pet | Pet Finder" ) %>
 
-    <% if @pet.lost %>
-      <p><h1>Reported Lost:</h1></p>
-    <% else %>
-      <p><h1>Reported Found:</h1></p>
-    <% end %>
+<%if @pet.lost%>
+  <p><h1>Reported Lost:</h1></p>
+<%else%>
+  <p><h1>Reported Found:</h1></p>
+<%end%>
 
-    </h1>
-    <br>
+<br>
 
 <div class="row-fluid">
   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-
-      <%if @pet.avatar.present? %>
-          <p><%= image_tag @pet.avatar.url(:large), class: "img-responsive" %></p>
-        <%else%>
-            <%= image_tag("No_image_available.png", height: '300px', width: '300px') %>
-        <%end%>
-      <h3>Species:  <%= @pet.species %> </h3>
-      <br>
-      <h3>Breed:  <%= @pet.breed %> </h3>
-
-      <h3>Description:  <%= @pet.description %> </h3>
-
-      <h3>Colors:</h3>
-      <ul>
-        <% @pet.colors.each do |color| %>
-          <li><%= color.name %></li>
-        <%end%>
-      </ul>
-      <h3>Post created: <%= @pet.created_at.strftime(" %B %d, %Y")  %></p>
-      <h3>Location:  <%= @pet.loc_lost %> </h3>
-      <br><br><br><br><br><br><br>
+    <%= render @pet, size: :large, dimension: '300px', show_full: true %>
   </div>
 </div>
+
 <div class="row-fluid">
   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-          <% if @pet.lost %>
-            <p><%=link_to "Have you seen me?", new_pet_message_path(@pet), :class => "btn btn-danger"  %>
-          <% else %>
-            <p><%=link_to "Do you know who I belong to?", new_pet_message_path(@pet), :class => "btn btn-danger"  %>
-          <% end %>
-          <p><%=link_to "Return to pet index", pets_path, :class => "btn btn-danger"  %></p>
-
-          <% if can? :edit, @pet %>
-            <p><%= link_to "Edit This Listing", edit_pet_path, :class => "btn btn-danger"  %></p>
-          <%end%>
-          <% if can? :destroy, @pet %>
-            <p><%= link_to "Delete This Listing", pet_path(@pet),
-                                   :data => {:confirm => "You sure?",
-                                             :method => "delete"},
-                                   :class => "btn btn-danger" %></p>
-          <%end%>
-          <br><br><br><br><br><br><br>
+    <%if !current_user.pets.include? @pet && current_user.role != 'admin'%>
+      <%if @pet.lost%>
+        <p><%=link_to "Have you seen me?", new_pet_message_path(@pet), :class => "btn btn-danger" %>
+      <%else%>
+        <p><%=link_to "Do you know who I belong to?", new_pet_message_path(@pet), :class => "btn btn-danger" %>
+      <%end%>
+    <%end%>
+    <p><%= link_to "Return to pet index", pets_path, :class => "btn btn-danger" %></p>
+    <%if can? :edit, @pet%>
+      <p><%= link_to "Edit This Listing", edit_pet_path, :class => "btn btn-danger" %></p>
+    <%end%>
+    <%if can? :destroy, @pet%>
+      <p><%= link_to "Delete This Listing", pet_path(@pet),
+                             :data => {:confirm => "You sure?",
+                                       :method => "delete"},
+                             :class => "btn btn-danger" %></p>
+    <%end%>
+    <br><br><br><br><br><br><br>
   </div>
 </div>
 </div>

@@ -12,9 +12,9 @@
         <h1>Pet listings :</h1>
         <p>(<%= @pets.count %> out of <%= Pet.all.count %> total)</p>
       </div>
-      <% @pets.each do |pet| %>
+      <%@pets.each do |pet|%>
         <br>
-        <%= render pet %>
+        <%= render pet, size: :medium, dimension: '250px', show_full: true %>
       <%end%>
     </div>
 

@@ -2,43 +2,46 @@
 
 <div class="row-fluid">
   <div class="col-xs-12 col-sm-6 col-lg-4">
-    <p><%= link_to "Report a Lost Pet", new_pet_path(pet: { lost: true }), class: "btn btn-default test" %></p>
+    <p>
+      <%= link_to "Report a Lost Pet", new_pet_path(pet: { lost: true }), class: "btn btn-default test" %>
+    </p>
     <br>
-    <p><%= link_to "Report a Found Pet", new_pet_path(pet: { lost: false }), class: "btn btn-default test1" %></p>
+    <p>
+      <%= link_to "Report a Found Pet", new_pet_path(pet: { lost: false }), class: "btn btn-default test1" %>
+    </p>
     <br>
-    <p><%= link_to "View list of pets", pets_path, class: "btn btn-default test2" %></p>
+    <p>
+      <%= link_to "View list of pets", pets_path, class: "btn btn-default test2" %>
+    </p>
     <br>
-    <p><%= link_to 'Search lost pets', pets_search_path(search: { lost: true }), class: "btn btn-default test2" %></p>
+    <p>
+      <%= link_to 'Search lost pets', pets_search_path(search: { lost: true }), class: "btn btn-default test2" %>
+    </p>
     <br>
-    <p><%= link_to 'Search found pets', pets_search_path(search: { lost: false}), class: "btn btn-default test2" %></p>
+    <p>
+      <%= link_to 'Search found pets', pets_search_path(search: { lost: false}), class: "btn btn-default test2" %>
+    </p>
     <br>
-    <% if can? :index, User %>
+    <%if can? :index, User%>
       <p align='center'><%= link_to 'Users directory', users_path %></p>
-    <% end %>
+    <%end%>
   </div>
 </div>
 
 <div class="row-fluid">
   <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
     <h1 class="green">Welcome to the pet finder!</h1>
-    <p>Literally foursquare fashion axe, locavore letterpress mustache freegan American Apparel. Ennui retro paleo locavore, twee McSweeney's whatever. Sriracha American Apparel YOLO, fingerstache pug narwhal single-origin coffee dreamcatcher pork belly chillwave Godard locavore. Bitters small batch banh mi, ethnic distillery you probably haven't heard of them Schlitz aesthetic authentic. Tote bag vegan retro scenester. Neutra beard occupy, tattooed Tumblr Kickstarter sartorial Bushwick bespoke quinoa seitan freegan. Whatever butcher distillery, Shoreditch bitters Brooklyn gentrify fingerstache stumptown.</p>
+    <p>
+      Literally foursquare fashion axe, locavore letterpress mustache freegan American Apparel. Ennui retro paleo locavore, twee McSweeney's whatever. Sriracha American Apparel YOLO, fingerstache pug narwhal single-origin coffee dreamcatcher pork belly chillwave Godard locavore. Bitters small batch banh mi, ethnic distillery you probably haven't heard of them Schlitz aesthetic authentic. Tote bag vegan retro scenester. Neutra beard occupy, tattooed Tumblr Kickstarter sartorial Bushwick bespoke quinoa seitan freegan. Whatever butcher distillery, Shoreditch bitters Brooklyn gentrify fingerstache stumptown.
+    </p>
     <br>
-
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
       <div class="display">
         Recently lost pets:
       </div>
-      <% @lost.each do |pet| %>
+      <%@lost.each do |pet|%>
         <br>
-        <%if pet.avatar.present? %>
-            <p><%= link_to image_tag(pet.avatar.url(:medium), class: "img-responsive"),  pet_path(pet) %></p>
-        <%else%>
-            <p><%= link_to image_tag("No_image_available.png", height: '100px', width: '100px'),  pet_path(pet) %></p>
-        <%end%>
-        <p><%= link_to "Species:" + pet.species,  pet_path(pet) %> </p>
-        <p>Species:  <%= pet.species %></p>
-        <p>Last seen at:  <%= pet.loc_lost %></p>
-        <p>Post created: <%= pet.created_at.strftime(" %B %d, %Y")  %></p>
+        <%= render pet,  size: :thumb, dimension: '100px', show_full: false %>
       <%end%>
     </div>
 
@@ -46,17 +49,9 @@
       <div class="display">
         Recently found pets:
       </div>
-      <% @found.each do |pet| %>
+      <%@found.each do |pet|%>
         <br>
-        <%if pet.avatar.present? %>
-            <p><%= link_to image_tag(pet.avatar.url(:medium), class: "img-responsive"),  pet_path(pet) %></p>
-        <%else%>
-            <p><%= link_to image_tag("No_image_available.png", height: '100px', width: '100px'),  pet_path(pet) %></p>
-        <%end%>
-        <p><%= link_to "Species:" + pet.species,  pet_path(pet) %> </p>
-        <p>Species:  <%= pet.species %></p>
-        <p>Last seen at:  <%= pet.loc_lost %></p>
-        <p>Post created: <%= pet.created_at.strftime(" %B %d, %Y")  %></p>
+        <%= render pet,  size: :thumb, dimension: '100px', show_full: false %>
       <%end%>
     </div>
 

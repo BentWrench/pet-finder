@@ -6,12 +6,12 @@
       <div class="display1">
         <h1> Most recent lost pets :</h1>
       </div>
-      <% if @lost.empty? %>
+      <%if @lost.empty?%>
         <h1>There are presently no lost pets </h1>
       <%end%>
-      <% @lost.each do |pet| %>
+      <%@lost.each do |pet|%>
         <br>
-        <%= render pet %>
+        <%= render pet, size: :medium, dimension: '200px', show_full: true %>
       <%end%>
     </div>
 
@@ -22,9 +22,9 @@
       <% if @found.empty? %>
         <h1>There are presently no found pets </h1>
       <%end%>
-      <% @found.each do |pet| %>
+      <%@found.each do |pet|%>
         <br>
-        <%= render pet %>
+        <%= render pet, size: :medium, dimension: '200px', show_full: true %>
       <%end%>
     </div>
 
