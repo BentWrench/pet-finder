@@ -1,7 +1,7 @@
 def sign_in_as(user)
   visit '/'
   click_link 'Sign in'
-  within("#new_user") do
+  within("#sign_in") do
     fill_in 'Email', :with => user.email
     fill_in 'Password', :with => user.password
   end
