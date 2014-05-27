@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="col-md-6">
+    <%= form_tag pet_messages_path(@pet) do %><br><br>
+
+      <%= label_tag :message %> <br>
+
+      <% if @pet.lost %>
+        <%= text_area_tag :message, "I may have found your lost pet.", class: "form-control" %>
+      <% else %>
+        <%= text_area_tag :message, "I may know the owner of that pet!", class: "form-control" %>
+      <% end %>
+
+      <br><br>
+
+      <%= hidden_field_tag "sender_email", current_user.email %>
+      <%= hidden_field_tag "owner_email", @pet.user.email %>
+      <%= hidden_field_tag "owner_phone", @pet.user.phone %>
+      <%= hidden_field_tag "lost", @pet.lost %>
+
+      <br>
+      <%= submit_tag "Send Email", class: "btn btn-primary" %>
+      <br><br><br><br><br><br>
+    <% end %>
+  </div>
+</div>

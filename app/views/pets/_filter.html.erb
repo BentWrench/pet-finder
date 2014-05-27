@@ -1,0 +1,9 @@
+<div class="display1">
+  <h1>Filter:</h1>
+</div>
+<%= form_tag pets_search_path, method: :get do %>
+  <%= select_tag 'search[lost]', options_for_select([['Lost', 'true'], ['Found', 'false']], params[:search][:lost]), prompt: 'Lost or Found' %><br>
+  <%= select_tag 'search[species]', options_for_select(Pet::TYPES, params[:search][:species]), prompt: 'Pet type' %><br>
+  <%= select_tag 'search[loc_lost]', options_for_select(Pet::LOCATIONS, params[:search][:loc_lost]), prompt: 'Location' %><br>
+  <%= submit_tag 'Filter' %>
+<%end%>

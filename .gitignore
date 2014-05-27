@@ -14,9 +14,5 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
-<<<<<<< HEAD
 
-/system/pets/avatars
-=======
-/public/system
->>>>>>> master
+/public/system/pets

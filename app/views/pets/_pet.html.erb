@@ -1,0 +1,15 @@
+<% if pet.avatar.present? %>
+  <%= link_to image_tag(pet.avatar.url(:medium), class: "img-responsive"), pet_path(pet) %>
+<%else%>
+  <%= link_to image_tag("No_image_available.png", height: '300px', width: '300px'), pet_path(pet) %>
+<%end%>
+<p><%= link_to "Species #{pet.species}", pet_path(pet) %></p>
+<p><%= pet.lost ? 'Last seen at' : 'Found near' %>: <%= pet.loc_lost %></p>
+<p>Post created: <%= pet.created_at.strftime(" %B %d, %Y") %></p>
+<p>Description:  <%= pet.description %></p>
+<p>Colors:</p>
+<ul>
+  <% pet.colors.each do |color| %>
+    <li><%= color.name %></li>
+  <%end%>
+</ul>

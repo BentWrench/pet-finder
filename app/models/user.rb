@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  after_create :send_welcome_email
+
   ROLES = %w(admin user)
   has_many :pets, dependent: :destroy
   # Include default devise modules. Others available are:
@@ -13,5 +15,9 @@ class User < ActiveRecord::Base
 
   def found_pets
     self.pets.select { |pet| !pet.lost }
+  end
+
+  def send_welcome_email
+    UserMailer.welcome_email(self).deliver
   end
 end

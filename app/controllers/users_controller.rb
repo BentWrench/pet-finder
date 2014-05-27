@@ -13,6 +13,7 @@ class UsersController < ApplicationController
     new_params = user_params.merge({ password: "74108520" })
     @user = User.new(new_params)
     if @user.save
+      UserMailer.welcome_email(@user).deliver
       flash[:notice] = "#{@user.email} successfully added as admin."
       redirect_to users_path
     else

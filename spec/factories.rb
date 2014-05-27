@@ -11,7 +11,7 @@ FactoryGirl.define do
     species 'Bird'
     breed 'Eagle'
     description 'description'
-    color 'Brown'
+    colors Color.where(name: 'Black')
     loc_lost 'Downtown'
     lost true
     user

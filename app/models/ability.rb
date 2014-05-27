@@ -10,7 +10,7 @@ class Ability
           account.role == 'admin'
         end
       elsif user.role == 'user'
-        can :read, User do |account|
+        can :show, User do |account|
           account == user
         end
         can [:read, :create], Pet

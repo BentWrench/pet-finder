@@ -1,5 +1,4 @@
 class PetsController < ApplicationController
-
   def index
     authorize! :index, Pet
     @pets = Pet.all
@@ -7,12 +6,25 @@ class PetsController < ApplicationController
     @found = Pet.found.last(5)
   end
 
+  def search
+    authorize! :index, Pet
+    @pets = Pet.filter(filtering_params)
+  end
+
+  def show
+    @pet = Pet.find(params[:id])
+    authorize! :show, @pet
+    if @pet.nil?
+      render 'public/404.html'
+    end
+  end
+
   def new
     authorize! :create, Pet
     if !current_user
       render "please_sign_in"
     else
-      @pet = Pet.new(:lost => params[:lost])
+      @pet = Pet.new(pet_params)
       render 'new'
     end
   end
@@ -28,7 +40,7 @@ class PetsController < ApplicationController
   end
 
   def edit
-    @pet = Pet.find params[:id]
+    @pet = Pet.find(params[:id])
     authorize! :update, @pet
     if !current_user
       render "please_sign_in.html.erb"
@@ -37,23 +49,9 @@ class PetsController < ApplicationController
     end
   end
 
-  def show
-    @pet = Pet.find_by_id(params[:id])
-    authorize! :show, @pet
-    if @pet.nil?
-      render 'public/404.html'
-    end
-  end
-
-  # Ellie's Alternate method:
-  #   begin
-  #     @pet = Pet.find params[:id]
-  #   rescue ActiveRecord::RecordNotFound => e
-  #     @pet = nil
-  #   end
 
   def update
-    @pet = Pet.find params[:id]
+    @pet = Pet.find(params[:id])
     authorize! :update, @pet
     if @pet.update pet_params
       redirect_to pets_path
@@ -63,19 +61,24 @@ class PetsController < ApplicationController
   end
 
   def destroy
-    @pet = Pet.find params[:id]
+    @pet = Pet.find(params[:id])
     authorize! :destroy, @pet
     @pet.destroy
     flash[:notice] = 'Pet listing successfully deleted.'
     redirect_to pets_path
-
   end
+
 
 
 
 private
   def pet_params
-    params.require(:pet).permit(:user_id, :species, :breed, :color, :loc_lost, :lost, :description, :avatar)
+    params.require(:pet).permit(:user_id, :species, :breed, :loc_lost, :lost, :description, :avatar, color_ids: [])
+  end
+
+
+  def filtering_params
+    params.require(:search).permit(:user_id, :species, :breed, :loc_lost, :lost)
   end
 
 

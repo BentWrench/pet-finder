@@ -12,6 +12,8 @@ gem 'devise'
 gem 'cancancan'
 gem 'bootstrap-sass'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'bootstrap_form'
+gem 'rufus-scheduler'
 
 
 group :development, :test do
@@ -27,6 +29,8 @@ group :development, :test do
   gem 'meta_request'
   gem 'rerun'
   gem 'launchy'
+  gem 'textacular'
+  gem "letter_opener"
 end
 
 group :production do
