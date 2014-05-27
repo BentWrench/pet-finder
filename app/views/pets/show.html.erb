@@ -16,22 +16,22 @@
 
 <div class="row-fluid">
   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-    <%if !current_user.pets.include? @pet && current_user.role != 'admin'%>
+    <%if ( !current_user || ( !current_user.pets.include?(@pet) || current_user.role == 'admin' ))%>
       <%if @pet.lost%>
-        <p><%=link_to "Have you seen me?", new_pet_message_path(@pet), :class => "btn btn-danger" %>
+        <p><%= link_to "Have you seen me?", new_pet_message_path(@pet), class: "btn btn-danger" %>
       <%else%>
-        <p><%=link_to "Do you know who I belong to?", new_pet_message_path(@pet), :class => "btn btn-danger" %>
+        <p><%= link_to "Do you know who I belong to?", new_pet_message_path(@pet), class: "btn btn-danger" %>
       <%end%>
     <%end%>
-    <p><%= link_to "Return to pet index", pets_path, :class => "btn btn-danger" %></p>
+    <p><%= link_to "Return to pet index", pets_path, class: "btn btn-danger" %></p>
     <%if can? :edit, @pet%>
-      <p><%= link_to "Edit This Listing", edit_pet_path, :class => "btn btn-danger" %></p>
+      <p><%= link_to "Edit This Listing", edit_pet_path, class: "btn btn-danger" %></p>
     <%end%>
     <%if can? :destroy, @pet%>
       <p><%= link_to "Delete This Listing", pet_path(@pet),
-                             :data => {:confirm => "You sure?",
-                                       :method => "delete"},
-                             :class => "btn btn-danger" %></p>
+                             data: {confirm: "You sure?",
+                                    method: "delete"},
+                             class: "btn btn-danger" %></p>
     <%end%>
     <br><br><br><br><br><br><br>
   </div>

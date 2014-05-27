@@ -17,37 +17,29 @@
  *= require_self
  */
 
-#side_banner1{
+#side-banner{
   position: absolute;
   width: 248px;
   height: 90px;
+  color: white;
+  padding: 15px;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+#side-banner1{
+  @extend #side-banner;
   background-color: #663300;
-  color: white;
-  padding: 15px;
-  margin-bottom: 20px;
-  text-align: left;
 }
 
-#side_banner2{
-  position: absolute;
-  width: 248px;
-  height: 90px;
+#side-banner2{
+  @extend #side-banner;
   background-color: #93be07;
-  color: white;
-  padding: 15px;
-  margin-bottom: 20px;
-  text-align: left;
 }
 
-#side_banner3{
-  position: absolute;
-  width: 248px;
-  height: 90px;
+#side-banner3{
+  @extend #side-banner;
   background-color: #f26b32;
-  color: white;
-  padding: 15px;
-  margin-bottom: 20px;
-  text-align: left;
 }
 
 .btn{
@@ -75,15 +67,13 @@
 }
 
 .test1{
-  height:100px;
+  @extend .test;
   background-color: #75A319;
-  text-align:left;
 }
 
 .test2{
-  height:100px;
+  @extend .test;
   background-color: #FF6600;
-  text-align:left;
 }
 
 .banner{
@@ -94,8 +84,8 @@
 }
 
 h1{
-  font-weight:bold;
-  margin-top:0;
+  font-weight: bold;
+  margin-top: 0;
 }
 
 .green{
@@ -128,5 +118,4 @@ a {
 
  .sign_up_form{
   background: orange;
-
  }
