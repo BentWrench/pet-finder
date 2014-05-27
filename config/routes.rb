@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   match '/users/admin/new', via: :post, to: 'users#create'
 
   match '/pets/search', via: :get, to: 'pets#search'
-  resources :pets   #, :except => []
+  resources :pets do
+    resources :messages, only: [:new, :create]
+  end
 
 
 

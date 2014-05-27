@@ -26,9 +26,10 @@
       <div class="field">
           <%= f.select :loc_lost, options_for_select(Pet::LOCATIONS, @pet.loc_lost),
           label: (@pet.lost ? "Area last seen in" : "Area pet found")%>
-         </div><br>
+      </div><br>
 
-      <%= f.hidden_field :lost %>
+
+        <%= f.hidden_field :lost %>
 
       <div class="field">
         <%= f.text_area :description, size: "54",
@@ -45,7 +46,6 @@
         <%end%>
       <%end%>
       <%= f.file_field :avatar, label: (@pet.created_at ? "Edit photo:" : "Add photo:") %>
-
 
       <br><br>
 

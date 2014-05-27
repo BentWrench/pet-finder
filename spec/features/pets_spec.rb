@@ -1,7 +1,6 @@
 require "spec_helper"
 
 
-
 describe "lost or found pet" do
   before :each do
     @user = create(:user)
@@ -22,12 +21,7 @@ describe "lost or found pet" do
     end
   end
 
-
   describe "edit listing" do
-    before :each do
-      @user = create(:user)
-    end
-
     it "edits a lost pet listing" do
       pet = create(:pet, user: @user, description: 'eagle eagle eagle' )
       sign_in_as(@user)
@@ -45,16 +39,36 @@ describe "lost or found pet" do
   end
 
   describe "select listing" do
-    before :each do
-      @user = create(:user)
-    end
-
     it "selects an existing listing" do
       pet = create(:pet, user: @user, description: 'eagle eagle eagle' )
       sign_in_as(@user)
       visit pets_path
       click_link "Bird"
       page.should have_content "Reported Lost: Species: Bird"
+    end
+  end
+
+  describe "reporting a lost pet sighting" do
+    it "sends an email to the pet owner" do
+      pet = create(:pet, :lost => true)
+      sign_in_as(@user)
+      visit pet_path(pet)
+      click_link "Have you seen me?"
+      fill_in "Message", :with => "I have your dog!"
+      click_button "Send Email"
+      ActionMailer::Base.deliveries.last.to.should eq [pet.user.email]
+    end
+  end
+
+  describe "reporting the ID of a lost pet" do
+    it "sends an email to a lost pet finder" do
+      pet = create(:pet, :lost => false)
+      sign_in_as(@user)
+      visit pet_path(pet)
+      click_link "Do you know who I belong to?"
+      fill_in "Message", :with => "That's my cousin Dre-Dre's dog!"
+      click_button "Send Email"
+      ActionMailer::Base.deliveries.last.to.should eq [pet.user.email]
     end
   end
 end

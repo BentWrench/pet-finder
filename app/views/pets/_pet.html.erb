@@ -1,7 +1,7 @@
 <% if pet.avatar.present? %>
-  <a href="/pets/<%= pet.id %>"><%= image_tag pet.avatar.url(:medium), class: "img-responsive" %></a>
+  <%= link_to image_tag(pet.avatar.url(:medium), class: "img-responsive"), pet_path(pet) %>
 <%else%>
-  <a href="/pets/<%= pet.id %>"><%= image_tag("No_image_available.png", height: '300px', width: '300px') %></a>
+  <%= link_to image_tag("No_image_available.png", height: '300px', width: '300px'), pet_path(pet) %>
 <%end%>
 <p><%= link_to "Species #{pet.species}", pet_path(pet) %></p>
 <p><%= pet.lost ? 'Last seen at' : 'Found near' %>: <%= pet.loc_lost %></p>
