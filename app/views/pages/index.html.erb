@@ -4,13 +4,13 @@
   <div class="col-xs-12 col-sm-6 col-lg-4">
     <p><%= link_to "Report a Lost Pet", new_pet_path(pet: { lost: true }), class: "btn btn-default test" %></p>
     <br>
-    <p><%= link_to "Report a Found Pet", new_pet_path(pet: { lost: false }), class: "btn btn-default test1" %></p>
+    <p><%= link_to "Report a Found Pet", new_pet_path(pet: { lost: false }), class: "btn btn-default test" %></p>
+    <br>
+    <p><%= link_to 'Search lost pets', pets_search_path(search: { lost: true }), class: "btn btn-default test1" %></p>
+    <br>
+    <p><%= link_to 'Search found pets', pets_search_path(search: { lost: false}), class: "btn btn-default test1" %></p>
     <br>
     <p><%= link_to "View list of pets", pets_path, class: "btn btn-default test2" %></p>
-    <br>
-    <p><%= link_to 'Search lost pets', pets_search_path(search: { lost: true }), class: "btn btn-default test2" %></p>
-    <br>
-    <p><%= link_to 'Search found pets', pets_search_path(search: { lost: false}), class: "btn btn-default test2" %></p>
     <br>
     <% if can? :index, User %>
       <p align='center'><%= link_to 'Users directory', users_path %></p>
@@ -24,7 +24,7 @@
     <p>Literally foursquare fashion axe, locavore letterpress mustache freegan American Apparel. Ennui retro paleo locavore, twee McSweeney's whatever. Sriracha American Apparel YOLO, fingerstache pug narwhal single-origin coffee dreamcatcher pork belly chillwave Godard locavore. Bitters small batch banh mi, ethnic distillery you probably haven't heard of them Schlitz aesthetic authentic. Tote bag vegan retro scenester. Neutra beard occupy, tattooed Tumblr Kickstarter sartorial Bushwick bespoke quinoa seitan freegan. Whatever butcher distillery, Shoreditch bitters Brooklyn gentrify fingerstache stumptown.</p>
     <br>
 
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <div class="display">
         Recently lost pets:
       </div>
@@ -42,7 +42,7 @@
       <%end%>
     </div>
 
-    <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
       <div class="display">
         Recently found pets:
       </div>
