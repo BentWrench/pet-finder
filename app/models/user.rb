@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
-  after_create :send_welcome_email
+  # needs to be temporarily excluded for Heroku to work
+  # after_create :send_welcome_email
 
   ROLES = %w(admin user)
   has_many :pets, dependent: :destroy
