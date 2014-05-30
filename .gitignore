@@ -15,4 +15,7 @@
 /log/*.log
 /tmp
 
+# Ignore any new pet images
 /public/system/pets
+
+.DS_Store
