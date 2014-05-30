@@ -1,10 +1,15 @@
+  <div class='col-xs-12 col-sm-12 col-md-6 col-lg-6'>
+
 <%= form_tag do %>
   <%= hidden_field :user, :role, value: 'admin' %>
-  <div class='form-group'>
+  <div class='form-group '>
     <%= label :user, :email %><br>
     <%= text_field :user, :email %>
   </div>
   <br><br>
   <%= submit_tag "Create Admin", class: 'btn btn-primary' %>
+
 <% end %>
 <br><br><br>
+
+</div>
