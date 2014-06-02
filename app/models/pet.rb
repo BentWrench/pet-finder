@@ -1,8 +1,8 @@
 class Pet < ActiveRecord::Base
   include Filterable
 
-  GENDER = ['M','F']
-  AGES = ['1-5', '6-10', '10+']
+  GENDERS = ['Male','Female', 'Unknown']
+  AGES = ['1-5', '6-10', '10+', 'Unknown']
   TYPES = ['Dog', 'Cat', 'Rodent', 'Misc. mammal', 'Bird', 'Reptile', 'Amphibian', 'Anthropod']
   LOCATIONS = ['Downtown', 'NE Portland', 'NW Portand', 'SE Portland', 'SW Portland', 'N Portland',
                'Beaverton', 'Gresham', 'Clackamas', 'Tigard', 'Tualatin', 'Happy Valley', 'Milwaukie',
@@ -15,6 +15,7 @@ class Pet < ActiveRecord::Base
   scope :subtype, -> (subtype) { self.where(breed: subtype) }
   scope :loc_lost, -> (location) { self.where(loc_lost: location) }
   scope :gender, -> (gender) { self.where(gender: gender) }
+  scope :age, -> (age) { self.where(age: age) }
 
   has_attached_file :avatar,
                     :styles => { :large => "600x600>",
@@ -33,6 +34,8 @@ class Pet < ActiveRecord::Base
   validates :breed, :presence => true
   validates :description, :presence => true
   validates :loc_lost, :presence => true
+  validates_inclusion_of :gender, in: GENDERS
+  validates_inclusion_of :age ,in: AGES
 
   belongs_to :user
   has_and_belongs_to_many :colors

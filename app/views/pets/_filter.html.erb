@@ -14,10 +14,9 @@
     <br>
 
 
-    <%= select_tag 'search[loc_lost]', options_for_select(Pet::GENDER, params[:search][:gender]), prompt: 'Gender', class: 'form-control'%>
+    <%= select_tag 'search[gender]', options_for_select(Pet::GENDERS, params[:search][:gender]), prompt: 'Gender', class: 'form-control'%>
     <br>
-
-    <%= select_tag 'search[loc_lost]', options_for_select(Pet::AGES, params[:search][:age]), prompt: 'Age', class: 'form-control'%>
+    <%= select_tag 'search[age]', options_for_select(Pet::AGES, params[:search][:age]), prompt: 'Age', class: 'form-control'%>
     <br>
 
     <%= submit_tag 'Filter', class: 'form-control filter' %>

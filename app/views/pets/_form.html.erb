@@ -16,7 +16,7 @@
       <br>
 
       <div class="field">
-        <%= f.select :gender, options_for_select(Pet::GENDER, @pet.gender),
+        <%= f.select :gender, options_for_select(Pet::GENDERS, @pet.gender),
             label: "Please enter gender of pet" %>
       </div>
       <br>
