@@ -1,6 +1,8 @@
 class Pet < ActiveRecord::Base
   include Filterable
 
+  GENDER = ['M','F']
+  AGES = ['1-5', '6-10', '10+']
   TYPES = ['Dog', 'Cat', 'Rodent', 'Misc. mammal', 'Bird', 'Reptile', 'Amphibian', 'Anthropod']
   LOCATIONS = ['Downtown', 'NE Portland', 'NW Portand', 'SE Portland', 'SW Portland', 'N Portland',
                'Beaverton', 'Gresham', 'Clackamas', 'Tigard', 'Tualatin', 'Happy Valley', 'Milwaukie',
@@ -12,6 +14,7 @@ class Pet < ActiveRecord::Base
   scope :species, -> (type) { self.where(species: type) }
   scope :subtype, -> (subtype) { self.where(breed: subtype) }
   scope :loc_lost, -> (location) { self.where(loc_lost: location) }
+  scope :gender, -> (gender) { self.where(gender: gender) }
 
   has_attached_file :avatar,
                     :styles => { :large => "600x600>",

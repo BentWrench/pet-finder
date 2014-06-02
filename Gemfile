@@ -14,6 +14,8 @@ gem 'bootstrap-sass'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'bootstrap_form'
 gem 'rufus-scheduler'
+gem 'rubocop', require: false
+
 
 
 group :development, :test do

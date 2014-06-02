@@ -73,12 +73,12 @@ class PetsController < ApplicationController
 
 private
   def pet_params
-    params.require(:pet).permit(:user_id, :species, :breed, :loc_lost, :lost, :description, :avatar, color_ids: [])
+    params.require(:pet).permit(:user_id, :species, :breed, :loc_lost, :lost, :description, :gender, :age, :avatar, color_ids: [])
   end
 
 
   def filtering_params
-    params.require(:search).permit(:user_id, :species, :breed, :loc_lost, :lost)
+    params.require(:search).permit(:user_id, :species, :gender, :age, :breed, :loc_lost, :lost)
   end
 
 

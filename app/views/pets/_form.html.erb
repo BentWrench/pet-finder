@@ -7,12 +7,26 @@
             label: "Please enter type of pet" %>
       </div>
       <br>
+
       <div class="field">
         <%= f.text_field :breed,
                          label: "Breed",
                          placeholder: "Please enter a breed" %>
       </div>
       <br>
+
+      <div class="field">
+        <%= f.select :gender, options_for_select(Pet::GENDER, @pet.gender),
+            label: "Please enter gender of pet" %>
+      </div>
+      <br>
+
+      <div class="field">
+        <%= f.select :age, options_for_select(Pet::AGES, @pet.age),
+            label: "Please enter age of pet" %>
+      </div>
+      <br>
+
       <div class="field">
         <% Color.all.each do |color| %>
           <input id='pet_colors_<%= color.id %>' name='pet[color_ids][]' type='checkbox' value='<%= color.id %>'
@@ -55,7 +69,7 @@
 
       <br><br>
 
-      <%= f.submit(:class => "btn btn-primary") %>
+      <%= f.submit(class: "btn btn-primary") %>
     <%end%>
   </div>
 </div>
