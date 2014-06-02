@@ -15,10 +15,12 @@
   <p>Gender: <%= pet.gender %></p>
   <p>Age: <%= pet.age%></p>
   <p>Description:  <%= pet.description %></p>
-  <p>Colors:</p>
-  <ul>
-    <%pet.colors.each do |color|%>
-      <li><%= color.name %></li>
-    <%end%>
-  </ul>
+  <% unless pet.colors.empty? %>
+    <p>Colors:</p>
+    <ul>
+      <%pet.colors.each do |color|%>
+        <li><%= color.name %></li>
+      <%end%>
+    </ul>
+  <%end%>
 <%end%>

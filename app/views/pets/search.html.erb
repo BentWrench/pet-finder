@@ -3,19 +3,20 @@
 <div class="container-fluid">
   <div class="row-fluid">
 
-    <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
       <%= render 'filter' %>
     </div>
 
-    <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9">
       <div class="display1">
         <h1>Pet listings :</h1>
         <p>(<%= @pets.count %> out of <%= Pet.all.count %> total)</p>
       </div>
       <%@pets.each do |pet|%>
         <br>
-        <%= render pet, size: :medium, dimension: '250px', show_full: true %>
+        <%= render pet, size: :large, dimension: '350px', show_full: true %>
       <%end%>
+      <%= will_paginate @pets %>
     </div>
 
     <br><br><br><br><br><br><br><br>

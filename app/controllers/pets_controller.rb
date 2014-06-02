@@ -8,7 +8,7 @@ class PetsController < ApplicationController
 
   def search
     authorize! :index, Pet
-    @pets = Pet.filter(filtering_params)
+    @pets = Pet.filter(filtering_params).order('created_at DESC').page(params[:page]).per_page(20)
   end
 
   def show

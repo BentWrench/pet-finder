@@ -15,8 +15,7 @@ gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'bootstrap_form'
 gem 'rufus-scheduler'
 gem 'rubocop', require: false
-
-
+gem 'will_paginate', '~> 3.0.5'
 
 group :development, :test do
   gem 'spring'
