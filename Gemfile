@@ -11,11 +11,13 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'cancancan'
 gem 'bootstrap-sass'
-gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
+gem 'paperclip', :git => 'git://github.com/thoughtbot/paperclip.git'
 gem 'bootstrap_form'
 gem 'rufus-scheduler'
 gem 'rubocop', require: false
 gem 'will_paginate', '~> 3.0.5'
+gem 'dotenv-rails'
+
 
 group :development, :test do
   gem 'spring'
@@ -31,7 +33,7 @@ group :development, :test do
   gem 'rerun'
   gem 'launchy'
   gem 'textacular'
-  gem "letter_opener"
+  gem 'letter_opener'
 end
 
 group :production do

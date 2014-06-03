@@ -37,6 +37,15 @@ Rails.application.configure do
 
   config.action_mailer.default_url_options = { host: 'localhost:3000' }
 
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+  address: "smtp.mailgun.org",
+  port: 587,
+  domain: "sandboxe779514dd7654f4296a6d3d1e0ea6859.mailgun.org",
+  authentication: "plain",
+  enable_starttls_auto: true,
+  user_name: ENV['mailgun_user_name'],
+  password: ENV['mailgun_user_password']
+}
 
 end

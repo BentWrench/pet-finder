@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: 'notifications@example.com'   # <-------------------------------------- OHS email address here
+  default from: 'nospam211@yahoo.com'   # <-------------------------------------- OHS email address here
 
 
   def welcome_email(user)

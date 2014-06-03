@@ -19,3 +19,5 @@
 /public/system/pets
 
 .DS_Store
+
+.env
