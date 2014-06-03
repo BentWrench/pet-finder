@@ -2,11 +2,12 @@
 <div class="container">
   <div class="row-fluid">
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <br>
       <div class="display1">
-        <h1> Most recent lost pets :</h1>
+        <h3> Most recent lost pets :</h3>
       </div>
       <%if @lost.empty?%>
-        <h1>There are presently no lost pets </h1>
+        <h3>There are presently no lost pets </h3>
       <%end%>
       <%@lost.each do |pet|%>
         <br>
@@ -15,11 +16,12 @@
     </div>
 
     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+      <br>
       <div class="display1">
-        <h1>Most recent found pets:</h1>
+        <h3>Most recent found pets:</h3>
       </div>
       <% if @found.empty? %>
-        <h1>There are presently no found pets </h1>
+        <h3>There are presently no found pets </h3>
       <%end%>
       <%@found.each do |pet|%>
         <br>

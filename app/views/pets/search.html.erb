@@ -1,24 +1,25 @@
 
 <br>
-<div class="container-fluid">
+<div class="container">
   <div class="row-fluid">
 
     <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+      <br>
       <%= render 'filter' %>
     </div>
-
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9">
-      <div class="display1">
-        <h1>Pet listings :</h1>
-        <p>(<%= @pets.count %> out of <%= Pet.all.count %> total)</p>
-      </div>
-      <%@pets.each do |pet|%>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-9">
         <br>
-        <%= render pet, size: :large, dimension: '350px', show_full: true %>
-      <%end%>
-      <%= will_paginate @pets %>
-    </div>
+        <div class="display1">
+          <h3>Pet listings :</h3>
+        </div>
+        <p>(<%= @pets.count %> out of <%= Pet.all.count %> total)</p>
+        <%@pets.each do |pet|%>
+          <br>
 
-    <br><br><br><br><br><br><br><br>
+              <%= render pet, size: :large, dimension: '350px', show_full: true %>
+        <%end%>
+        <%= will_paginate @pets %>
+      </div>
+    <br><br><br><br><br><br><br><br><br><br><br>
   </div>
 </div>
