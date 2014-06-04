@@ -5,7 +5,6 @@ Patrick McGreevy
 
 Paul Ogawa
 
-J Vogelsberg
 
 --------------------------------------------------------------------------------------------------------------------------------
 
@@ -23,13 +22,13 @@ FINISHED–As a lost pet owner, I want to provide my email or phone so that some
 
 FINISHED–As a lost pet finder, I want to create a posting for the pet I found, in case the owner hasn't created a posting for it yet.
 
-–As a pet finder, I want to search for pets, so that I can find the owner.
+FINISHED–As a pet finder, I want to search for pets, so that I can find the owner.
 
-–As a pet finder, I want to enter a message to the pet owner and have it email them my name, phone number and message, to let them know I found the pet.
+FINISHED–As a pet finder, I want to enter a message to the pet owner and have it email them my name, phone number and message, to let them know I found the pet.
 
 –As a lost pet owner, I want to receive a text message when my pet is found, so that I get the message more quickly than by email.
 
 –As a pet finder, I want to include a photo of the pet I found in my message to the owner, so they can check and see if it's theirs.
 
-–As the Humane Society, I want the site to look like asapmetro.org.
+FINISHED–As the Humane Society, I want the site to look like asapmetro.org.
 
