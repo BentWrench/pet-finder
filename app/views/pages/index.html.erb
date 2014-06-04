@@ -46,8 +46,8 @@
         <%= render pet,  size: :thumb, dimension: '100px', show_full: false %>
       <%end%>
       <br>
-      <%if Pet.found.length > 6%>
-        <%=link_to 'See more here', pets_path, class: "btn btn-primary"%>
+      <%if Pet.lost.length > @lost.length%>
+        <%=link_to 'See more here', pets_search_path(search: { lost: true }), class: "btn btn-primary"%>
       <%end%>
     </div>
 
@@ -60,8 +60,8 @@
         <%= render pet,  size: :thumb, dimension: '100px', show_full: false %>
       <%end%>
       <br>
-    <%if Pet.found.length > 6%>
-      <%=link_to 'See more here', pets_path, class: "btn btn-primary"%>
+    <%if Pet.found.length > @found.length%>
+      <%=link_to 'See more here', pets_search_path(search: { lost: false }), class: "btn btn-primary"%>
     <%end%>
     </div>
 

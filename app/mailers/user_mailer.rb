@@ -1,10 +1,10 @@
 class UserMailer < ActionMailer::Base
-  default from: 'nospam211@yahoo.com'   # <-------------------------------------- OHS email address here
+  default from: 'test@email.com'   # <-------------------------------------- OHS email address here
 
 
   def welcome_email(user)
     @user = user
-    @url  = 'http://example.com/login'  # <-------------------------------------------- URL of Login Page
+    @url  = 'http://humane-society-pet-finder.herokuapp.com/users/sign_in'  # <-------------------------------------------- URL of Login Page
     mail(to: @user.email, subject: "Welcome to the Oregon Humane Society's Pet Finder!")
   end
 
