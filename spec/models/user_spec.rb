@@ -7,7 +7,7 @@ describe User do
 
   context "creating new user" do
     it "should send a welcome email" do
-      user = FactoryGirl.create(:user)
+      user = create(:user)
       ActionMailer::Base.deliveries.last.to.should eq [user.email]
     end
   end
