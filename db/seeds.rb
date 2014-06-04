@@ -9,6 +9,14 @@ Pet.create(lost: true, user: ADMIN, species: 'Reptile', breed: 'Iguana',
   description: 'Lost iguana listing', colors: Color.where(name: ['Green', 'Black']), loc_lost: 'Downtown')
 Pet.create(lost: true, user: ADMIN, species: 'Dog', breed: 'Poodle',
   description: 'Lost poodle listing', colors: Color.where(name: 'Black'), loc_lost: 'Downtown')
+Pet.create(lost: true, user: ADMIN, species: 'Cat', breed: 'Blank',
+  description: 'Lost pet listing', colors: Color.where(name: 'Black'), loc_lost: 'Downtown')
+Pet.create(lost: true, user: ADMIN, species: 'Reptile', breed: 'Blank',
+  description: 'Lost pet listing', colors: Color.where(name: 'Black'), loc_lost: 'Downtown')
+Pet.create(lost: true, user: ADMIN, species: 'Bird', breed: 'Blank',
+  description: 'Lost pet listing', colors: Color.where(name: 'Black'), loc_lost: 'Downtown')
+Pet.create(lost: true, user: ADMIN, species: 'Amphibian', breed: 'Blank',
+  description: 'Lost pet listing', colors: Color.where(name: 'Black'), loc_lost: 'Downtown')
 Pet.create(lost: false, user: ADMIN, species: 'Reptile', breed: 'Chameleon',
   description: 'Found chameleon listing', loc_lost: 'Downtown')
 Pet.create(lost: false, user: ADMIN, species: 'Cat', breed: 'Taudy',
