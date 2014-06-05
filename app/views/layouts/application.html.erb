@@ -9,14 +9,19 @@
 <body>
 
   <div class="container">
-    <div class="sign_in_links" align="right">
-      <%if user_signed_in?%>
-        <span class="logged-in-as">Logged in as <strong><%= current_user.email %></strong></span>
-        <%= link_to 'Edit profile', edit_user_registration_path %> |
-        <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
-      <%else%>
-        <%= link_to "Sign In | Sign Up", new_user_session_path %>
-      <%end%>
+    <div class="sign_in_links">
+      <div class="pull-left">
+        <%= link_to 'Home', root_path%>
+      </div>
+      <div class="pull-right">
+        <%if user_signed_in?%>
+          <span class="logged-in-as" align='right'>Logged in as <strong><%= current_user.email %></strong></span>
+          <%= link_to 'Edit profile', edit_user_registration_path %> |
+          <%= link_to "Sign out", destroy_user_session_path, method: :delete %>
+        <%else%>
+          <%= link_to "Sign In or Sign Up", new_user_session_path %>
+        <%end%>
+      </div>
     </div>
 
     <%= flash[:alert] %>

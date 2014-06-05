@@ -5,9 +5,9 @@
 <%end%>
 <br>
 <%= render("layouts/errors", :object => @pet) %>
-
-<%= render 'form' %>
-<br>
-<p><%= link_to "Return to pet index", pets_path %></p>
-
+<div class="row">
+  <%= render 'form' %>
+  <br>
+  <p><%= link_to "Return to pet index", pets_path %></p>
+</div>
 <br><br><br>
