@@ -8,6 +8,12 @@ GIT
       cocaine (~> 0.5.3)
       mime-types
 
+GIT
+  remote: http://github.com/rmagick/rmagick.git
+  revision: 79e1708c7f6792a3a90cb8cb3ffaeb74c58e092e
+  specs:
+    rmagick (2.13.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -266,6 +272,7 @@ DEPENDENCIES
   rails (= 4.1.0)
   rails_12factor
   rerun
+  rmagick (= 2.13.2)!
   rspec-rails
   rubocop
   rufus-scheduler
