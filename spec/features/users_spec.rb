@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'Visiting homepage' do
   scenario 'Not logged in' do
     visit root_path
-    expect(page).to have_content 'Sign In | Sign Up'
+    expect(page).to have_content 'Sign In or Sign Up'
   end
 
   scenario 'Logged in' do

@@ -82,4 +82,35 @@ describe "lost or found pet" do
       ActionMailer::Base.deliveries.last.to.should eq [pet.user.email]
     end
   end
+
+  describe 'adding  two pets to the website' do
+    it 'adds two pets to the website' do
+      sign_in_as(@user)
+      click_link 'Report a Lost Pet'
+      select("Bird", :from => "pet_species")
+      fill_in "Breed", :with => "Eagle"
+      check("Brown")
+      select("Downtown", :from => "pet_loc_lost")
+      fill_in 'Description', :with => "My eagle flew away!"
+      click_button "Create Pet"
+      page.should have_content "My eagle flew away!"
+
+      click_link 'Home'
+      click_link 'Report a Lost Pet'
+      select("Cat", :from => "pet_species")
+      fill_in "Breed", :with => "short hair"
+      check("Brown")
+      select("Downtown", :from => "pet_loc_lost")
+      fill_in 'Description', :with => "My cat is gone!"
+      click_button "Create Pet"
+      page.should have_content "My cat is gone!"
+    end
+  end
+
 end
+
+
+
+
+
+
