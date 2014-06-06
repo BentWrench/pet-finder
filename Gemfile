@@ -18,8 +18,6 @@ gem 'will_paginate', '~> 3.0.5'
 gem 'dotenv-rails'
 gem 'aws-sdk'
 
-gem 'rmagick', '2.13.2', :git=>'http://github.com/rmagick/rmagick.git'
-
 
 
 
